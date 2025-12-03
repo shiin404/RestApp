@@ -1,0 +1,129 @@
+.siteFooter {
+  background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+  padding: 50px 20px 30px;
+  margin-top: 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Сетка колонок */
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Колонки */
+.footerCol h4 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.topSlogan {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Соцсети */
+.footerSocialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footerSocialIcons img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 6px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footerSocialIcons img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.3);
+}
+
+/* Списки навигации */
+.footerCol ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerCol ul li {
+  margin-bottom: 8px;
+}
+
+.footerCol ul li a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footerCol ul li a:hover {
+  color: #ffb400;
+}
+
+/* Кнопка приложения */
+.downloadApp {
+  background: #444;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.downloadApp:hover {
+  background: #555;
+  transform: translateY(-2px);
+}
+
+/* Нижняя строка */
+.footerBottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .footerContent {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footerContent {
+    grid-template-columns: 1fr;
+  }
+
+  .footerCol h4 {
+    font-size: 15px;
+  }
+
+  .topSlogan {
+    font-size: 13px;
+  }
+
+  .footerCol ul li a {
+    font-size: 13px;
+  }
+
+  .downloadApp {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}

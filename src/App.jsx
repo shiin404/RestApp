@@ -5,6 +5,8 @@ import styles from './components/App.module.css'
 import Search from './components/Search'
 import Place from './components/Place'
 import Map from './components/Map'
+import Interesting from './components/Interesting'
+import Footer from './components/Footer'
 function App() {
   return(
     <div className={styles.page}>
@@ -13,6 +15,8 @@ function App() {
       <Search />
       <Place />
       <Map />
+      <Interesting />
+      <Footer />
     </div>
   )
 }
