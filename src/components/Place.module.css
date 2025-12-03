@@ -1,9 +1,10 @@
+/* Заголовки */
 .restaurants h2, .hotels h2, .flowers h2 {
   margin: 20px 0 12px;
   font-size: 18px;
 }
 
-/* Рестораны */
+/* --- Рестораны --- */
 .restaurantcard {
   display: flex;
   gap: 12px;
@@ -12,11 +13,13 @@
   padding: 12px;
   background: rgba(255,255,255,0.02);
   border-radius: 8px;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
 .restaurantcard:hover {
   background: rgba(255,255,255,0.05);
+  transform: translateY(-2px);
 }
 
 .restaurantcard img {
@@ -41,19 +44,20 @@
   font-size: 14px;
 }
 
-/* Гостиницы */
+/* --- Гостиницы --- */
 .hotelsrow {
-  display:flex;
+  display: flex;
   gap: 12px;
+  flex-wrap: wrap; /* добавлено для адаптивности */
 }
 
 .hotelcard {
-  flex: 1;
-  min-width: 30%;
+  flex: 1 1 calc(33.333% - 12px); /* три карточки в ряд */
+  min-width: 220px;
   background: rgba(255,255,255,0.02);
   padding: 8px;
   border-radius: 8px;
-  text-align:center;
+  text-align: center;
   transition: background 0.2s ease, transform 0.2s ease;
   cursor: pointer;
 }
@@ -63,21 +67,20 @@
   transform: translateY(-2px);
 }
 
-/* Цветочные магазины */
+/* --- Цветочные магазины --- */
 .flowers {
   margin-top: 24px;
 }
 
 .flowersrow {
   display: flex;
-  flex-wrap: wrap;    /* позволяет карточкам переноситься */
-  gap: 16px;          /* расстояние между карточками */
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-/* Карточка автоматически подстраивается под экран */
 .flowercard {
   flex: 1 1 calc(25% - 16px); /* 4 карточки в ряд */
-  min-width: 220px;           
+  min-width: 220px;
   background: rgba(255, 255, 255, 0.06);
   padding: 12px;
   border-radius: 14px;
@@ -111,4 +114,51 @@
 .flowercard:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0px 6px 22px rgba(0,0,0,0.25);
+}
+
+/* --- Адаптивность --- */
+
+/* Планшеты */
+@media (max-width: 1024px) {
+  .hotelcard {
+    flex: 1 1 calc(50% - 12px); /* две карточки в ряд */
+  }
+
+  .flowercard {
+    flex: 1 1 calc(33.333% - 16px); /* три карточки в ряд */
+  }
+
+  .restaurantcard img {
+    width: 120px;
+    height: 80px;
+  }
+}
+
+/* Мобильные */
+@media (max-width: 768px) {
+  .hotelcard {
+    flex: 1 1 100%;
+  }
+
+  .flowercard {
+    flex: 1 1 calc(50% - 16px); /* две карточки в ряд */
+  }
+
+  .restaurantcard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .restaurantcard img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .flowercard {
+    flex: 1 1 100%;
+  }
 }

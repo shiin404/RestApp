@@ -24,3 +24,27 @@
 .banneritem:hover {
   transform: scale(1.03);
 }
+
+/* Адаптив: планшеты */
+@media (max-width: 768px) {
+  .bannersgrid {
+    grid-template-columns: 1fr 1fr; /* остаются две колонки */
+    gap: 10px;
+  }
+
+  .banneritem img {
+    height: 150px;
+  }
+}
+
+/* Адаптив: мобильные */
+@media (max-width: 480px) {
+  .bannersgrid {
+    grid-template-columns: 1fr; /* одна колонка */
+    gap: 8px;
+  }
+
+  .banneritem img {
+    height: 130px;
+  }
+}

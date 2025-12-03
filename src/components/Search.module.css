@@ -1,53 +1,124 @@
-.searchsection {
+/* Основная секция поиска */
+.searchSection {
   display: flex;
   justify-content: center;
-  margin: 40px 0;
+  margin: 50px 0;
 }
 
-.searchcontainer {
+/* Контейнер поиска */
+.searchContainer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 14px 20px;
-  border-radius: 12px;
+  gap: 12px;
+  flex-wrap: wrap;
   width: 90%;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease; /* добавили плавное изменение цвета */
+  max-width: 900px;
+  padding: 16px 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: background 0.3s ease;
 }
 
-.searchcontainer:hover {
+.searchContainer:hover {
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Меняем цвет подсказки при hover на контейнер */
-.searchcontainer:hover .searchplaceholder {
-  color: #fff;
-}
-
-/* Левая часть (Поиск + подсказка) */
-.searchleft {
+/* Кнопки категорий */
+.categoryButtons {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 7px;
+  flex-wrap: wrap;
 }
 
-.searchlabel {
-  font-size: 20px;
-  font-weight: bold;
+.categoryBtn {
+  background-color: rgba(114, 114, 114, 0.1);
+  border: none;
+  padding: 13px 19px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.categoryBtn:hover,
+.categoryBtn.active {
+  background-color: rgba(151, 150, 150, 0.1);
+}
+
+/* Поле поиска */
+.searchInput {
+  flex: 1;
+  padding: 13px 19px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background-color: rgba(114, 114, 114, 0.1);
   color: #fff;
 }
 
-.searchplaceholder {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.5);
-  transition: color 0.3s ease; /* плавное изменение цвета */
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
-/* Правая часть — слово Найти */
-.searchaction {
-  font-size: 16px;
-  font-weight: 600;
+/* Кнопка Найти */
+.searchAction {
+  padding: 13px 19px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(114, 114, 114, 0.1);
   color: #fff;
-  opacity: 0.9;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.searchAction:hover {
+  background-color: #555;
+}
+
+/* --- Адаптивность --- */
+
+/* Планшеты */
+@media (max-width: 768px) {
+  .searchContainer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .categoryButtons {
+    justify-content: center;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+}
+
+/* Мобильные */
+@media (max-width: 480px) {
+  .searchContainer {
+    width: 100%;
+  }
+  .categoryButtons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .categoryBtn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .searchInput {
+    font-size: 13px;
+    padding: 13px 10px;
+  }
+
+  .searchAction {
+    font-size: 13px;
+    padding: 13px 12px;
+  }
 }
