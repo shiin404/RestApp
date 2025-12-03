@@ -1,0 +1,41 @@
+.interesting-grid.spacing {
+  margin-top: 10px; /* отступ от заголовка */
+}
+.interesting-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* расстояние между рядами увеличено */
+  max-width: 1000px; /* увеличиваем ширину для крупных баннеров */
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.interesting-item img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Ряд с тремя баннерами */
+.interesting-row.three {
+  display: flex;
+  gap: 25px; /* увеличиваем расстояние между баннерами */
+  width: 100%;
+}
+
+.interesting-row.three .interesting-item {
+  flex: 1; /* равная ширина для всех трёх баннеров */
+}
+
+.interesting-row.three .interesting-item img {
+  height: 300px; /* увеличиваем высоту баннеров */
+}
+
+/* Заголовки */
+.interesting-item .title {
+  margin-top: 6px;
+  font-size: 14px;
+  text-align: center;
+  color: rgba(0,0,0,0.9);
+}

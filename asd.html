@@ -1,0 +1,157 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Баннеры 2x2 -->
+<section class="banners-grid">
+  <div class="banner-item">
+    <img src="{% static 'core/images/banner1.jpg' %}" alt="Баннер 1">
+  </div>
+  <div class="banner-item">
+    <img src="{% static 'core/images/banner2.jpg' %}" alt="Баннер 2">
+  </div>
+  <div class="banner-item">
+    <img src="{% static 'core/images/banner3.jpg' %}" alt="Баннер 3">
+  </div>
+  <div class="banner-item">
+    <img src="{% static 'core/images/banner4.jpg' %}" alt="Баннер 4">
+  </div>
+</section>
+
+<!-- Блок поиска -->
+<section class="search-section">
+  <div class="search-container">
+    <div class="search-left">
+      <span class="search-label">Поиск</span>
+      <span class="search-placeholder">ресторана, гостиниц, цветочных магазинов</span>
+    </div>
+    <div class="search-action">Найти</div>
+  </div>
+</section>
+
+<!-- Рестораны -->
+<section class="restaurants">
+  <h2>Рестораны</h2>
+  {% for r in restaurants %}
+    <article class="restaurant-card">
+      {% if r.image %}
+        <img src="{{ r.image.url }}" alt="{{ r.name }}">
+      {% else %}
+        <div class="restaurant-placeholder">{{ r.name }}</div>
+      {% endif %}
+      <div class="card-info">
+        <h3>{{ r.name }}</h3>
+        <p class="desc">{{ r.description|truncatechars:120 }}</p>
+      </div>
+    </article>
+  {% endfor %}
+  <div class="more-link"><a href="#">→ Все рестораны</a></div>
+</section>
+
+<!-- Гостиницы -->
+<section class="hotels">
+  <h2>Гостиницы</h2>
+  <div class="hotels-row">
+    {% for h in hotels %}
+      <div class="hotel-card">
+        {% if h.image %}
+          <img src="{{ h.image.url }}" alt="{{ h.name }}">
+        {% else %}
+          <div class="hotel-placeholder">{{ h.name }}</div>
+        {% endif %}
+        <div class="hotel-name">{{ h.name }}</div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="more-link"><a href="#">→ Все гостиницы</a></div>
+</section>
+
+<!-- Цветочные магазины -->
+<section class="flowers">
+  <h2>Цветочные магазины</h2>
+  <div class="flowers-row">
+    {% for f in flowers %}
+      <div class="flower-card">
+        {% if f.image %}
+          <img src="{{ f.image.url }}" alt="{{ f.name }}">
+        {% else %}
+          <div class="flower-placeholder">{{ f.name }}</div>
+        {% endif %}
+        <div class="flower-name">{{ f.name }}</div>
+        {% if f.price_from %}
+          <div class="price">от {{ f.price_from }} ₸</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="more-link"><a href="#">→ Все цветочные магазины</a></div>
+</section>
+
+<!-- Мини-карта с ресторанами -->
+<section class="map-section" style="margin-top:24px;">
+  <h2 style="margin-bottom:10px;">Ближайшие рестораны и кафе</h2>
+  <div id="map" style="width:100%;height:300px;"></div>
+</section>
+
+<script src="https://maps.api.2gis.ru/2.0/loader.js"></script>
+<script>
+DG.then(function () {
+    const map = DG.map('map', {
+        center: [43.238949, 76.889709], // центр Алматы
+        zoom: 13
+    });
+
+    const markers = [
+        { coords: [43.241, 76.927], name: "Ресторан 1" },
+        { coords: [43.235, 76.885], name: "Ресторан 2" },
+        { coords: [43.245, 76.890], name: "Кафе 1" }
+    ];
+
+    markers.forEach(m => {
+        DG.marker(m.coords).addTo(map).bindPopup(m.name);
+    });
+});
+</script>
+
+<!-- Интересное -->
+<section class="interesting" style="margin-top: 24px;">
+  <h2>Интересное</h2>
+  <div class="interesting-grid spacing">
+  </div>
+    
+    <!-- Первый ряд: 3 баннера -->
+    <div class="interesting-row three ">
+      <div class="interesting-item">
+        <img src="{% static 'core/images/banner5.jpg' %}" alt="Banner1">
+        <div class="title">Banner5</div>
+      </div>
+      <div class="interesting-item">
+        <img src="{% static 'core/images/banner6.jpg' %}" alt="banner6">
+        <div class="title">banner6</div>
+      </div>
+      <div class="interesting-item">
+        <img src="{% static 'core/images/banner7.jpg' %}" alt="banner7">
+        <div class="title">banner7</div>
+      </div>
+    </div>
+
+    <!-- Второй ряд: 3 баннера -->
+    <div class="interesting-row three">
+      <div class="interesting-item">
+        <img src="{% static 'core/images/banner8.jpg' %}" alt="banner8">
+        <div class="title">banner8</div>
+      </div>
+      <div class="interesting-item">
+        <img src="{% static 'core/images/banner9.jpg' %}" alt="banner9">
+        <div class="title">banner9</div>
+      </div>
+      <div class="interesting-item">
+        <img src="{% static 'core/images/banner10.jpg' %}" alt="banner10">
+        <div class="title">banner10</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

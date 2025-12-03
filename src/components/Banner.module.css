@@ -1,0 +1,26 @@
+/* Баннеры 2x2 */
+.bannersgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.banneritem {
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.banneritem img {
+  width: 100%;
+  height: 180px; /* одинаковая высота */
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.banneritem:hover {
+  transform: scale(1.03);
+}

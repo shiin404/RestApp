@@ -1,0 +1,53 @@
+.searchsection {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.searchcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 14px 20px;
+  border-radius: 12px;
+  width: 90%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* добавили плавное изменение цвета */
+}
+
+.searchcontainer:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Меняем цвет подсказки при hover на контейнер */
+.searchcontainer:hover .searchplaceholder {
+  color: #fff;
+}
+
+/* Левая часть (Поиск + подсказка) */
+.searchleft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.searchlabel {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.searchplaceholder {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease; /* плавное изменение цвета */
+}
+
+/* Правая часть — слово Найти */
+.searchaction {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  opacity: 0.9;
+}

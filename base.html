@@ -1,0 +1,156 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RestApp</title>
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+  <script defer src="{% static 'core/js/main.js' %}"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-container">
+        <div class="header-left">
+          <button class="burger" aria-label="menu">☰</button>
+        </div>
+        <h1 class="logo">RestApp</h1>
+        <div class="header-actions">
+          <button class="login">Login</button>
+          <button class="app">App</button>
+        </div>
+      </div>
+    </header>
+
+ <!-- BURGER OVERLAY -->
+<div class="burger-overlay"></div>
+
+<!-- BURGER MENU -->
+<div class="burger-menu">
+  <div class="burger-content">
+
+    <!-- Верх: языки -->
+    <div class="burger-top">
+      <div class="burger-section lang-section">
+        <div class="lang-select">
+          <span>Қаз</span>
+          <span>Рус</span>
+          <span>Eng</span>
+          <span>中文</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Основные разделы -->
+    <div class="burger-middle">
+      <ul>
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Партнеры</a></li>
+        <li><a href="#">Доставка</a></li>
+        <li><a href="#">Контакты</a></li>
+        <li><a href="#">Избранное</a></li>
+        <li><a href="#">Мои брони и заказы</a></li>
+      </ul>
+    </div>
+
+    <!-- Нижняя часть меню -->
+    <div class="burger-bottom">
+      <ul>
+        <li><a href="#">Пользовательское соглашение</a></li>
+        <li><a href="#">Политика конфиденциальности</a></li>
+        <li><a href="#">Помощь / FAQ</a></li>
+      </ul>
+    </div>
+
+
+
+  </div>
+</div>
+    <!-- Слоган справа -->
+    <div class="top-slogan-right fade-in">
+      {{ current_slogan }}
+    </div>
+
+    <main class="content">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <script>
+    // Скрипт для изменения прозрачности при прокрутке
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 20) {
+        header.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      } else {
+        header.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+      }
+    });
+
+    // BURGER MENU toggle
+    const burgerBtn = document.querySelector('.burger');
+    const burgerMenu = document.querySelector('.burger-menu');
+    const overlay = document.querySelector('.burger-overlay');
+
+    burgerBtn.addEventListener('click', () => {
+      burgerMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      burgerMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  </script>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+
+      <!-- Первый столбец: логотип, слоган и соцсети -->
+      <div class="footer-col">
+        <h4>RestApp</h4>
+        <p class="top-slogan">{{ current_slogan }}</p>
+        <div class="footer-social-icons">
+          <a href="#" target="_blank"><img src="{% static 'core/images/whatsapp.png' %}" alt="WhatsApp"></a>
+          <a href="#" target="_blank"><img src="{% static 'core/images/telegram.png' %}" alt="Telegram"></a>
+          <a href="#" target="_blank"><img src="{% static 'core/images/instagram.jpeg' %}" alt="Instagram"></a>
+        </div>
+      </div>
+
+      <!-- Навигация -->
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="#">Рестораны</a></li>
+          <li><a href="#">Гостиницы</a></li>
+          <li><a href="#">Цветочные магазины</a></li>
+          <li><a href="#">Популярное</a></li>
+        </ul>
+      </div>
+
+      <!-- Компания -->
+      <div class="footer-col">
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="#">О проекте</a></li>
+          <li><a href="#">Контакты</a></li>
+          <li><a href="#">Поддержка</a></li>
+        </ul>
+      </div>
+
+      <!-- Приложение -->
+      <div class="footer-col">
+        <h4>Приложение</h4>
+        <button class="download-app">Скачать App</button>
+      </div>
+
+    </div>
+
+    <!-- Нижняя строка -->
+    <div class="footer-bottom">
+      ©️ {{ year }} RestApp. Все права защищены.
+    </div>
+  </footer>
+</body>
+</html>
