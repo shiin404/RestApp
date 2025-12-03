@@ -162,3 +162,9 @@
     flex: 1 1 100%;
   }
 }
+@media (max-width: 480px) {
+  .hotelcard img {
+    width: 100%;
+    height: 100%;
+  }
+}

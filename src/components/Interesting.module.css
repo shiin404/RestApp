@@ -40,3 +40,18 @@
   text-align: center;
   color: rgba(0,0,0,0.9);
 }
+.interestingrow.three {
+  display: flex;
+  flex-wrap: wrap; /* позволяет переносить элементы на новую строку */
+  gap: 10px;
+}
+
+.interestingrow.three .interestingitem {
+  flex: 1 1 calc(50% - 10px); /* 2 колонки на мобильных */
+}
+
+@media (max-width: 480px) {
+  .interestingrow.three .interestingitem {
+    flex: 1 1 100%; /* 1 колонка на очень маленьких экранах */
+  }
+}

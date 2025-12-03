@@ -1,24 +1,14 @@
-import { useState } from 'react'
-import Header from "./components/Header"
-import Banner from "./components/Banner"
-import styles from './components/App.module.css'
-import Search from './components/Search'
-import Place from './components/Place'
-import Map from './components/Map'
-import Interesting from './components/Interesting'
-import Footer from './components/Footer'
-function App() {
-  return(
-    <div className={styles.page}>
-      <Header />
-      <Banner />
-      <Search />
-      <Place />
-      <Map />
-      <Interesting />
-      <Footer />
-    </div>
-  )
-}
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Profile from "./components/Profile";
 
-export default App
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}

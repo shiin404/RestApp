@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-
+import styles from './Map.module.css'
 export default function Map() {
   useEffect(() => {
     // Создаем скрипт SDK 2ГИС
@@ -38,8 +38,8 @@ export default function Map() {
   return (
     <div>
       <section style={{ marginTop: "24px" }}>
-        <h2 style={{ marginBottom: "10px" }}>Ближайшие рестораны и кафе</h2>
-        <div id="map" style={{ width: "100%", height: "500px" }}></div>
+        <h2 style={{ marginBottom: "10px" }}>Ближайшие рестораны</h2>
+        <div id="map" className={styles.maps}></div>
       </section>
     </div>
   );
