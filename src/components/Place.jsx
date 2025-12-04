@@ -1,36 +1,56 @@
 import styles from './Place.module.css'
 
-import rest_1 from "../assets/Rest 1.jpg";
-import rest_2 from "../assets/Rest 2.jpg";
+import rest_1 from "../assets/Rest 1.png";
+import rest_2 from "../assets/Rest 2.png";
 
-import flower_1 from "../assets/flower.webp";
-import flower_2 from "../assets/flower 2.jpg";
+import flower_1 from "../assets/flower 1.png";
+import flower_2 from "../assets/flower 2.png";
 import flower_3 from "../assets/flower 3.jpg";
 import flower_4 from "../assets/flower 4.jpg";
 
 import hotel from "../assets/hotel.jpg";
+import { useState } from 'react';
+
 export default function Place(){
+    let [restauran,Setrestauran] = useState([
+        {
+            name:'Tirol',
+            des:'Ресторан, где Европа оживает в каждом блюде. Мы соединяем классические рецепты и современные вкусы, чтобы вы почувствовали дух настоящей вкусной кухни.',
+            imgrest: rest_2
+        },
+        {
+            name:'Baoli',
+            des:'Уютное пространство с атмосферой вкуса и комфорта, где можно насладиться отдыхом, хорошей компанией и приятной атмосферой.',
+            imgrest: rest_1
+        }
+    ])
+    let [flowers,Setflowers] = useState([
+        {
+            name:'Ин лав ',
+            price:'Букеты от 15,000 ₸',
+            imgflowers: flower_1
+        },
+        {
+            name:'Florist',
+            price:'Букеты от 15,000 ₸',
+            imgflowers: flower_2
+        }
+    ])
     return(
         <div>
             <section class="restaurants">
                 <div>
                     <h2>Рестораны</h2>
-                    <article className={styles.restaurantcard}>
-                    <img src={rest_1} alt="Ресторан"/>
-                    <div className={styles.cardinfo}>
-                        <h3>Ресторан</h3>
-                        <p className={styles.desc}>Описание ресторана</p>
-                    </div>
-                    </article>
-
-                    <article className={styles.restaurantcard}>
-                    <img src={rest_2} alt="Ресторан"/>
-                    <div className={styles.cardinfo}>
-                        <h3>Ресторан</h3>
-                        <p className={styles.desc}>Описание ресторана</p>
-                    </div>
-                    </article>
-
+                    {restauran.map((element)=>(
+                        <article className={styles.restaurantcard}>
+                            <img src={element.imgrest} alt="Ресторан"/>
+                            <div className={styles.cardinfo}>
+                                <h3>{element.name}</h3>
+                                <p className={styles.desc}>{element.des}</p>
+                            </div>
+                        </article>
+                    ))}
+                    
                     <div className={styles.morelink}><a href="#">→ Все рестораны</a></div>
                 </div>
             </section>
@@ -50,27 +70,22 @@ export default function Place(){
                 <h2>Цветочные магазины</h2>
 
                 <div className={styles.flowersrow}>
-                    <div className={styles.flowercard}>
-                        <img src={flower_1} alt="Цветочная"/>
-                        <div className={styles.flowername}>Название цветов</div>
-                        <div className={styles.price}>от 20,000 ₸</div>
-                    </div>
-
-                    <div className={styles.flowercard}>
-                        <img src={flower_2} alt="Цветочная"/>
-                        <div className={styles.flowername}>Название цветов</div>
-                        <div className={styles.price}>от 20,000 ₸</div>
-                    </div>
-
+                    {flowers.map((element)=>(
+                        <div className={styles.flowercard}>
+                            <img src={element.imgflowers} alt="Цветочная"/>
+                            <div className={styles.flowername}>{element.name}</div>
+                            <div className={styles.price}>{element.price}</div>
+                        </div>
+                    ))}
                     <div className={styles.flowercard}>
                         <img src={flower_3} alt="Цветочная"/>
-                        <div className={styles.flowername}>Название цветов</div>
+                        <div className={styles.flowername}>Цветочная студия</div>
                         <div className={styles.price}>от 20,000 ₸</div>
                     </div>
 
                     <div className={styles.flowercard}>
                         <img src={flower_4} alt="Цветочная"/>
-                        <div className={styles.flowername}>Название цветов</div>
+                        <div className={styles.flowername}>Цветочная студия</div>
                         <div className={styles.price}>от 20,000 ₸</div>
                     </div>
                     

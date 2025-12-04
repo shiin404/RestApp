@@ -117,7 +117,9 @@
 }
 
 /* --- Адаптивность --- */
-
+.cardinfo p{
+  max-width: 700px;
+}
 /* Планшеты */
 @media (max-width: 1024px) {
   .hotelcard {
@@ -156,13 +158,11 @@
   }
 }
 
-/* Очень маленькие экраны */
+
 @media (max-width: 480px) {
   .flowercard {
     flex: 1 1 100%;
   }
-}
-@media (max-width: 480px) {
   .hotelcard img {
     width: 100%;
     height: 100%;
