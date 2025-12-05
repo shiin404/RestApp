@@ -1,0 +1,71 @@
+.page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #121212;
+  border-radius: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.image {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  text-align: left;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #cfcfcf;
+  text-align: left;
+}
+
+.bookButton {
+  align-self: flex-start; /* кнопка по левому краю */
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #121212;
+  background-color: #ffb400;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.bookButton:hover {
+  background-color: #e6a500;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+  .page {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .bookButton {
+    padding: 10px 25px;
+    font-size: 0.95rem;
+  }
+}

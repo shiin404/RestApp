@@ -7,7 +7,8 @@ import flower_1 from "../assets/flower 1.png";
 import flower_2 from "../assets/flower 2.png";
 import flower_3 from "../assets/flower 3.jpg";
 import flower_4 from "../assets/flower 4.jpg";
-
+import { Link } from "react-router-dom";
+import  {restaurant} from './AllPlace';
 import hotel from "../assets/hotel.jpg";
 import { useState } from 'react';
 
@@ -38,17 +39,19 @@ export default function Place(){
     ])
     return(
         <div>
-            <section class="restaurants">
+            <section className={styles.restaurants}>
                 <div>
                     <h2>Рестораны</h2>
-                    {restauran.map((element)=>(
-                        <article className={styles.restaurantcard}>
-                            <img src={element.imgrest} alt="Ресторан"/>
-                            <div className={styles.cardinfo}>
-                                <h3>{element.name}</h3>
-                                <p className={styles.desc}>{element.des}</p>
-                            </div>
-                        </article>
+                    {restaurant.map((element)=>(
+                        <Link key = {element.id} to={`/restaurant/${element.id}`}>
+                            <article className={styles.restaurantcard}>
+                                <img src={element.imgrest} alt="Ресторан"/>
+                                <div className={styles.cardinfo}>
+                                    <h3>{element.name}</h3>
+                                    <p className={styles.desc}>{element.des}</p>
+                                </div>
+                            </article>
+                        </Link>
                     ))}
                     
                     <div className={styles.morelink}><a href="#">→ Все рестораны</a></div>
@@ -66,7 +69,7 @@ export default function Place(){
                 <div className={styles.morelink}><a href="#">→ Все гостиницы</a></div>
             </section>
 
-            <section class="flowers">
+            <section className={styles.flowers}>
                 <h2>Цветочные магазины</h2>
 
                 <div className={styles.flowersrow}>
