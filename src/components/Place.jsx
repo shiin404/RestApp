@@ -63,7 +63,7 @@ export default function Place(){
                 <div className={styles.hotelsrow}>
                     <div className={styles.hotelcard}>
                         <img src={hotel} alt="Отель"/>
-                        <div className={styles.hotelname}>Отель</div>
+                        <div className={styles.hotelname}></div>
                     </div>
                 </div>
                 <div className={styles.morelink}><a href="#">→ Все гостиницы</a></div>
@@ -80,19 +80,7 @@ export default function Place(){
                             <div className={styles.price}>{element.price}</div>
                         </div>
                     ))}
-                    <div className={styles.flowercard}>
-                        <img src={flower_3} alt="Цветочная"/>
-                        <div className={styles.flowername}>Цветочная студия</div>
-                        <div className={styles.price}>от 20,000 ₸</div>
-                    </div>
-
-                    <div className={styles.flowercard}>
-                        <img src={flower_4} alt="Цветочная"/>
-                        <div className={styles.flowername}>Цветочная студия</div>
-                        <div className={styles.price}>от 20,000 ₸</div>
-                    </div>
                     
-
                 </div>
 
                 <div className= {styles.morelink}><a href="#">→ Все цветочные магазины</a></div>

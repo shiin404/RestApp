@@ -6,11 +6,7 @@ export default function Search() {
       <div className={styles.searchContainer}>
 
         {/* Кнопки выбора категории */}
-        <div className={styles.categoryButtons}>
-          <button className={styles.categoryBtn}>Ресторан</button>
-          <button className={styles.categoryBtn}>Отель</button>
-          <button className={styles.categoryBtn}>Цветочная</button>
-        </div>
+  
 
         {/* Поле поиска */}
         <input
