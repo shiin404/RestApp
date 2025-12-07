@@ -1,15 +1,17 @@
+/* Отступ сверху */
 .interestinggrid.spacing {
-  margin-top: 10px; /* отступ от заголовка */
+  margin-top: 10px;
 }
 
+/* Обёртка всей секции */
 .interestinggrid {
   display: flex;
   flex-direction: column;
-  gap: 30px; 
-  width: 100%;          /* ← занимает всю ширину */
-
+  gap: 15px;
+  width: 100%;
 }
 
+/* Картинки по умолчанию */
 .interestingitem img {
   width: 100%;
   object-fit: cover;
@@ -17,41 +19,31 @@
   display: block;
 }
 
-/* Ряд с тремя баннерами */
+/* --- Сетка из баннеров (идеально ровная) --- */
 .interestingrow.three {
-  display: flex;
-  gap: 25px; 
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 15px; /* одинаковое расстояние всегда */
 }
 
-.interestingrow.three .interestingitem {
-  flex: 1; /* равная ширина для всех трёх баннеров */
-}
-
+/* Изображения в баннерах */
 .interestingrow.three .interestingitem img {
-  height: 350px; /* фиксированная высота баннеров */
+  height: 350px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
-/* Заголовки */
+/* Заголовки карточек */
 .interestingitem .title {
   margin-top: 6px;
   font-size: 14px;
   text-align: center;
   color: rgba(0,0,0,0.9);
 }
-.interestingrow.three {
-  display: flex;
-  flex-wrap: wrap; /* позволяет переносить элементы на новую строку */
-  gap: 10px;
-}
 
-.interestingrow.three .interestingitem {
-  flex: 1 1 calc(50% - 10px); /* 2 колонки на мобильных */
-}
-
-@media (max-width: 480px) {
-  .interestingrow.three .interestingitem {
-    flex: 1 1 100%; /* 1 колонка на очень маленьких экранах */
+/* Мобильная версия */
+@media (max-width: 420px) {
+  .interestingrow.three {
+    grid-template-columns: 1fr; /* одна колонка */
   }
 }

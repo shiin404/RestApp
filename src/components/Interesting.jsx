@@ -17,34 +17,34 @@ export default function Interesting() {
                 <div className={`${styles.interestingrow} ${styles.three}`}>
                     <div className={styles.interestingitem}>
                         <img src={banner5} alt="Banner5" />
-                        <div className={styles.title}>Banner5</div>
+
                     </div>
 
                     <div className={styles.interestingitem}>
                         <img src={banner6} alt="Banner6" />
-                        <div className={styles.title}>Banner6</div>
+
                     </div>
 
                     <div className={styles.interestingitem}>
                         <img src={banner7} alt="Banner7" />
-                        <div className={styles.title}>Banner7</div>
+
                     </div>
                 </div>
 
                 <div className={`${styles.interestingrow} ${styles.three}`}>
                     <div className={styles.interestingitem}>
                         <img src={banner8} alt="Banner8" />
-                        <div className={styles.title}>Banner8</div>
+
                     </div>
 
                     <div className={styles.interestingitem}>
                         <img src={banner9} alt="Banner9" />
-                        <div className={styles.title}>Banner9</div>
+
                     </div>
 
                     <div className={styles.interestingitem}>
                         <img src={banner10} alt="Banner10" />
-                        <div className={styles.title}>Banner10</div>
+
                     </div>
                 </div>
 

@@ -11,7 +11,7 @@ export default function Search() {
         {/* Поле поиска */}
         <input
           type="text"
-          placeholder="Введите название заведения"
+          placeholder="Ресторана, гостиниц, цветочных"
           className={styles.searchInput}
         />
 
