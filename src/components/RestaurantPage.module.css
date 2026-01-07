@@ -1,304 +1,395 @@
-/* Основной фон страницы */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-  font-family: "Inter", sans-serif;
-  color: #e0e0e0;
+/* --- Глобальные Переменные и Цвета (Ultra Dark) --- */
+:root {
+    --color-black: #000000;
+    --color-dark-grey: #111111;
+    --color-text-light: #FFFFFF;
+    --color-text-muted: #CCCCCC;
+    --color-accent: #E5E4E2; /* Платина/Серебро для акцентов */
+    --border-line: 1px solid #333333;
+    --shadow-deep: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
-/* Кнопка назад */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: var(--color-black); 
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-light);
+    min-height: 100vh;
+}
+
+/* --- Секция Героя (Обложка, Название, Рейтинг) --- */
+.hero {
+    position: relative;
+    height: 70vh; /* Очень высокая обложка */
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.3) grayscale(1); /* Очень темное и монохромное изображение */
+}
+
+.heroContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрирование контента вертикально */
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.top {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    z-index: 10;
+}
+
 .back {
-  text-decoration: none;
-  color: #b0b0b0;
-  font-size: 0.95rem;
-  transition: 0.2s ease;
+    text-decoration: none;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    padding: 8px 15px;
+    border: 1px solid var(--color-text-muted);
+    border-radius: 4px;
+    transition: 0.2s ease;
 }
 
 .back:hover {
-  color: #fff;
+    color: var(--color-text-light);
+    border-color: var(--color-text-light);
 }
 
-/* Основная карточка */
-.card {
-  margin-top: 25px;
-  background: #333;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-}
-
-/* Фото */
-.image {
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-  filter: brightness(0.8);
-}
-
-/* Контент */
-.content {
-  padding: 30px;
-}
-
-/* Название ресторана */
 .title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: #fff;
+    font-size: 5rem; /* Очень крупный заголовок */
+    font-weight: 200; /* Тонкий шрифт для элегантности */
+    color: var(--color-text-light);
+    margin: 0 0 10px 0;
+    letter-spacing: 5px; /* Широкий интервал */
+    text-transform: uppercase;
 }
 
-/* Описание */
-.description {
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: #ccc;
-  margin-bottom: 20px;
-  max-width: 800px;
-}
-
-/* Разделы информации */
-.infoSection {
-  margin-bottom: 40px;
-  padding: 20px;
-  background: #444;
-  border-radius: 14px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.sectionTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Рейтинг */
-.rating {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.ratingInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
 .starFilled {
-  color: #ffd700;
-  font-size: 1.5rem;
+    color: var(--color-accent); /* Акцентный цвет для звезд */
+    font-size: 2rem;
 }
 
 .starEmpty {
-  color: #666;
-  font-size: 1.5rem;
+    color: var(--color-dark-grey);
+    font-size: 2rem;
 }
 
 .ratingText {
-  font-size: 1.2rem;
-  color: #ccc;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-text-light);
 }
 
-/* Адрес и текст */
+/* Кнопка Бронирования */
+.bookingArea {
+    margin-top: 10px;
+}
+
+.bookingButton {
+    padding: 18px 60px;
+    background-color: var(--color-text-light); /* Белая кнопка */
+    color: var(--color-black); /* Черный текст */
+    border: none;
+    border-radius: 0; /* Строгий прямоугольник */
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.bookingButton:hover {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+    transform: scale(1.05);
+}
+
+
+/* --- Основной Контент (Две Колонки) --- */
+.content {
+    padding: 0 80px; /* Большие отступы по бокам */
+}
+
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Меню занимает большую часть */
+    gap: 60px;
+    border-top: var(--border-line);
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+.sectionTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-accent); /* Акцентный цвет для заголовков секций */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-dark-grey);
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
 .infoText {
-  font-size: 1.05rem;
-  color: #ccc;
-  line-height: 1.65;
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.infoText i {
+    color: var(--color-accent);
+}
+.infoTextLink {
+    text-decoration: none;
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.infoTextLink:hover {
+    color: var(--color-accent);
 }
 
-.link {
-  color: #fff;
-  text-decoration: none;
-  transition: 0.2s ease;
+/* График работы (Details/Summary) */
+.scheduleDetails {
+    color: var(--color-text-light);
+    font-size: 1rem;
+    margin-top: 20px;
 }
-
-.link:hover {
-  color: #b0b0b0;
+.scheduleDetails summary {
+    padding: 10px 0;
+    cursor: pointer;
+    outline: none;
+    list-style: none; /* Убираем стандартную стрелку */
+    font-weight: 600;
+    border-top: var(--border-line);
 }
-
-/* График работы */
+.scheduleDetails summary::-webkit-details-marker {
+    display: none;
+}
 .scheduleList {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 10px 0 0 0;
+    margin: 0;
 }
-
 .scheduleItem {
-  font-size: 1.05rem;
-  color: #ccc;
-  margin-bottom: 8px;
-  padding: 8px 0;
-  border-bottom: 1px solid #555;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px dotted var(--color-dark-grey);
+    font-size: 0.95rem;
+}
+.scheduleItem:last-child {
+    border-bottom: none;
 }
 
-/* Меню */
+
+/* --- Меню --- */
 .menuGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px; /* Тонкие разделители */
+    background-color: var(--color-dark-grey);
 }
 
 .dishCard {
-  background: #555;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  transition: 0.3s ease;
+    background: var(--color-black);
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--color-dark-grey);
+    transition: background-color 0.2s;
 }
 
 .dishCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-}
-
-.dishImage {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+    background-color: var(--color-dark-grey);
 }
 
 .dishContent {
-  padding: 20px;
+    flex: 1;
+    padding-right: 20px;
 }
 
 .dishName {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #fff;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--color-text-light);
+    margin: 0 0 5px 0;
 }
 
 .dishDesc {
-  font-size: 0.95rem;
-  color: #ccc;
-  line-height: 1.5;
-  margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    margin: 0;
 }
 
 .dishPrice {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #ffd700;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-accent); 
+    white-space: nowrap; /* Не переносить цену */
+}
+
+
+/* --- Галерея и Отзывы --- */
+.secondaryGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding-top: 50px;
+    border-top: var(--border-line);
+    margin-bottom: 50px;
+}
+
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px;
+}
+
+.galleryImage {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0;
+    transition: 0.3s ease;
+    filter: grayscale(1);
+    border: 1px solid var(--color-dark-grey);
+}
+
+.galleryImage:hover {
+    filter: none; /* Возвращаем цвет при наведении */
+    opacity: 0.9;
 }
 
 /* Отзывы */
 .reviewsList {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .reviewCard {
-  background: #555;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    background: var(--color-dark-grey);
+    padding: 20px;
+    border-left: 3px solid var(--color-accent); /* Тонкая вертикальная линия */
 }
 
 .reviewName {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
 .reviewText {
-  font-size: 1rem;
-  color: #ccc;
-  line-height: 1.5;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
 }
 
-/* Галерея */
-.galleryGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 15px;
+/* --- Подписка --- */
+.subscribeContainer {
+    padding: 50px 0;
+    border-top: var(--border-line);
+    margin-bottom: 40px;
 }
 
-.galleryImage {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 14px;
-  transition: 0.3s ease;
-}
-
-.galleryImage:hover {
-  transform: scale(1.05);
-}
-
-/* Бронирование */
-.bookingArea {
-  border-top: 1px solid #555;
-  padding-top: 20px;
-}
-
-/* Подписка */
 .subscribeForm {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
 }
 
 .subscribeInput {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #666;
-  border-radius: 8px;
-  background: #444;
-  color: #fff;
-  font-size: 1rem;
+    flex: 1;
+    padding: 15px;
+    border: 1px solid var(--color-dark-grey);
+    border-radius: 0;
+    background: var(--color-black);
+    color: var(--color-text-light);
+    font-size: 1rem;
 }
 
 .subscribeInput::placeholder {
-  color: #aaa;
+    color: var(--color-text-muted);
 }
 
 .subscribeButton {
-  padding: 10px 20px;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s ease;
+    padding: 15px 30px;
+    background: var(--color-text-light);
+    color: var(--color-black);
+    border: none;
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s ease;
 }
 
 .subscribeButton:hover {
-  background: #0056b3;
+    background: var(--color-accent);
 }
 
-/* Страница не найдена */
-.notfound {
-  text-align: center;
-  margin-top: 80px;
-  color: #fff;
-}
 
-/* Адаптив */
-@media (max-width: 600px) {
-  .image {
-    height: 220px;
-  }
-
-  .content {
-    padding: 20px;
-  }
-
-  .title {
-    font-size: 1.6rem;
-  }
-
-  .description {
-    font-size: 1rem;
-  }
-
-  .menuGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .subscribeForm {
-    flex-direction: column;
-  }
+/* --- Адаптив --- */
+@media (max-width: 900px) {
+    .mainGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .secondaryGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .content {
+        padding: 0 20px;
+    }
+    .hero, .heroContent {
+        height: 50vh;
+    }
+    .title {
+        font-size: 3rem;
+        letter-spacing: 3px;
+    }
+    .bookingButton {
+        padding: 15px 40px;
+    }
+    .galleryGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

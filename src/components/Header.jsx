@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-
+import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <header className={styles.siteheader}>
@@ -9,8 +9,9 @@ export default function Header() {
         </div>
         <h1 className={styles.logo}>RestApp</h1>
         <div className={styles.headeractions}>
-          <button className={styles.login}>Login</button>
-          <button className={styles.app}>App</button>
+          <Link to = '/profile/1'>
+            <button>Profile</button>
+          </Link>
         </div>
       </div>
     </header>

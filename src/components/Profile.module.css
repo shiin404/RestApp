@@ -1,0 +1,166 @@
+/* --- 1. Переменные --- */
+:root {
+  --background-dark: #121212;      /* Очень темный, почти черный фон */
+  --card-dark: #1F1F1F;           /* Чуть светлее для карточек/контейнеров */
+  --text-light: #E0E0E0;          /* Светлый текст для контраста */
+  --text-secondary: #B0B0B0;       /* Второстепенный текст */
+  --accent-gray: #444444;          /* Серая линия/разделитель */
+  --border-radius: 8px;
+  --padding-unit: 20px;
+  --max-content-width: 1200px;     /* Максимальная ширина основного контента */
+}
+
+/* --- 2. Основной макет --- */
+
+.profileContainer {
+  /* Занимает всю ширину и высоту */
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+  padding: 40px var(--padding-unit);
+  font-family: 'Arial', sans-serif;
+}
+
+.contentWrapper {
+  /* Центрирование контента по всей ширине */
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Расстояние между основными секциями */
+}
+
+/* --- 3. Шапка Профиля (Header) --- */
+
+.profileHeader {
+    background-color: var(--card-dark);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    position: relative; /* Для позиционирования кнопки "Назад" */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.headerContent {
+    /* Контейнер для центрирования аватара и текста */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- Кнопка "Назад" --- */
+
+.backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.backButton:hover {
+    color: var(--text-light);
+    background-color: #333333;
+}
+
+/* --- Аватар и Текст --- */
+
+.avatar {
+  width: 150px; 
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 4px solid var(--accent-gray);
+}
+
+.name {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: var(--text-light);
+}
+
+.description {
+  font-size: 1.1em;
+  font-weight: 400;
+  margin: 0 0 15px 0;
+  color: var(--text-secondary);
+}
+
+/* --- Секция Действий (Кнопок) --- */
+
+.actionsSection {
+  border-top: 1px solid var(--accent-gray);
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%; /* Убедимся, что занимает всю ширину для центрирования */
+}
+
+.actionButton {
+  background-color: transparent;
+  color: var(--text-light);
+  border: 1px solid var(--accent-gray);
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none; /* Для Link */
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.actionButton:hover {
+  background-color: var(--accent-gray);
+  border-color: var(--text-light);
+}
+
+/* --- 4. Новые Информационные Секции (Бронирования, Подписки) --- */
+
+.infoSection {
+    background-color: var(--card-dark);
+    padding: var(--padding-unit);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.sectionTitle {
+    font-size: 1.5em;
+    color: var(--text-light);
+    border-bottom: 1px solid var(--accent-gray);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.itemList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--accent-gray);
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95em;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.noItems {
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 10px 0;
+}

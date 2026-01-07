@@ -6,7 +6,10 @@ import Search from './Search'
 import Place from './Place'
 import Map from './Map'
 import Interesting from './Interesting'
+import PartnerProjects from './PartnerProjects'
 import Footer from './Footer'
+
+
 export default function Home() {
   return(
     <div className={styles.page}>
@@ -16,6 +19,7 @@ export default function Home() {
       <Place />
       <Map />
       <Interesting />
+      <PartnerProjects />
       <Footer />
     </div>
   )

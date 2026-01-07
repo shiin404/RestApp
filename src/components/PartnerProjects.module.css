@@ -1,0 +1,92 @@
+/* PartnerProjects.module.css (Стильный видимый скроллбар) */
+
+/* Переменные для темного режима */
+:root {
+  --background-dark: #121212; 
+  --text-light: #E0E0E0;      
+  --accent-gray: #444444;    /* Темно-серый для трека/границ */
+  --scroll-thumb: #666666;    /* Цвет бегунка скролла */
+  --scroll-thumb-hover: #888888; /* Цвет бегунка при наведении */
+}
+
+/* --- 1. Основная структура --- */
+
+.partnersSection {
+    padding: 40px 0px;
+    width: 100%;
+}
+
+.page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px; 
+}
+
+.partnersSection h2 {
+    text-align: left;
+    margin-bottom: 16px;
+    color: white; 
+}
+
+/* --- 2. Слайдер (Возвращаем видимость) --- */
+
+.partnersSlider {
+    width: 100%;
+    overflow-x: auto; /* Горизонтальный скролл */
+    overflow-y: hidden;
+    padding-bottom: 10px; /* Отступ для скроллбара */
+    -webkit-overflow-scrolling: touch;
+    
+    /* !!! ИЗМЕНЕНИЕ: Возвращаем видимость в Firefox !!! */
+    scrollbar-width: thin; /* Тонкий скроллбар для Firefox */
+    scrollbar-color: var(--scroll-thumb) var(--accent-gray); /* Цвет бегунка и трека для Firefox */
+}
+
+/* 3. КАСТОМНЫЙ СТИЛЬ ДЛЯ WEBKIT (Chrome, Safari) */
+
+/* Трек (фон скроллбара) */
+.partnersSlider::-webkit-scrollbar-track {
+    background: var(--accent-gray); /* Темно-серый трек */
+    border-radius: 10px;
+}
+
+/* Бегунок (кнопка прокрутки) */
+.partnersSlider::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb); /* Средне-серый бегунок */
+    border-radius: 10px;
+    border: 2px solid var(--accent-gray); /* Рамка, чтобы отделить от трека */
+}
+
+/* Размер скроллбара */
+.partnersSlider::-webkit-scrollbar {
+    height: 8px; /* Тонкий по высоте */
+    width: 8px;
+}
+
+/* Эффект при наведении на бегунок */
+.partnersSlider::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scroll-thumb-hover); 
+}
+
+/* --- 4. Трек и Изображения --- */
+
+.partnersTrack {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+}
+
+.partnerImage {
+    height: 250px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagetext {
+    color: white; 
+}
+
+/* ... (Остальные стили хедера и т.д. без изменений) ... */

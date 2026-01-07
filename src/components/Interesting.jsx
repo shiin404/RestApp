@@ -1,6 +1,6 @@
 import styles from './Interesting.module.css';
 
-import banner5 from "../assets/banner5.jpg";
+import banner5 from "../assets/banner5.png";
 import banner6 from "../assets/banner6.jpg";
 import banner7 from "../assets/banner7.jpg";
 import banner8 from "../assets/banner8.jpg";
