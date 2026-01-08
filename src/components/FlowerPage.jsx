@@ -39,83 +39,59 @@ export default function FlowerPage() {
     };
 
     return (
-        <div className={styles.container}>
-            {/* 1. Секция Героя (Обложка) */}
-            <div className={styles.hero}>
-                <img src={Flowers.imgflower} alt={Flowers.name} className={styles.image} />
-                
-                <div className={styles.heroContent}>
-                    {/* Кнопка Назад */}
-                    <div className={styles.top}>
-                        <Link to={`/`} className={styles.back}>
-                            &larr; Назад
-                        </Link>
-                    </div>
-
-                    <div className={styles.titleArea}>
-                        <h1 className={styles.title}>{Flowers.name}</h1>
-                        <div className={styles.bookingArea}>
-                            <button onClick={handleBuy} className={styles.bookingButton}>
-                                Купить за {Flowers.price} ₽
-                            </button>
-                        </div>
-                    </div>
-                </div>
+    <div className={styles.container}>
+        <div className={styles.wrapper}>
+            
+            {/* 1. Навигация */}
+            <div className={styles.top}>
+                <Link to="/" className={styles.back}>&larr; Назад к каталогу</Link>
             </div>
 
-            {/* 2. Основной Контент (Сетка) */}
-            <div className={styles.content}>
-                <div className={styles.mainInfoGrid}>
-                    
-                    {/* Левая колонка: Описание */}
-                    <div className={styles.mainDescription}>
-                        <div className={styles.infoSection}>
-                            <h2 className={styles.sectionTitle}><i className="fas fa-leaf"></i> Детали и уход</h2>
-                            <p className={styles.description}>{description}</p>
-                            <p className={styles.description}>
-                                **Доступные цвета:** Красный, Розовый, Белый.<br/>
-                                **Инструкция по уходу:** Требует умеренного полива и яркого, но рассеянного света.
-                            </p>
-                        </div>
-                    </div>
+            {/* 2. Фото (Не на весь экран) */}
+            <div className={styles.imageContainer}>
+                <img src={Flowers.imgflower} alt={Flowers.name} className={styles.image} />
+            </div>
 
-                    {/* Правая колонка: Инфо-блок (Рейтинг, Контакты) */}
-                    <div className={styles.sidebar}>
-                        
-                        {/* Рейтинг */}
-                        <div className={`${styles.infoSection} ${styles.sidebarInfo}`}>
-                            <h2 className={styles.sectionTitle}><i className="fas fa-star"></i> Рейтинг нежности</h2>
-                            <div className={styles.rating}>
-                                {renderStars(rating)} <span className={styles.ratingText}>{rating}/5</span>
-                            </div>
-                        </div>
+            {/* 3. Заголовок и Кнопка */}
+            <div className={styles.headerSection}>
+                <h1 className={styles.title}>{Flowers.name}</h1>
+                <button onClick={handleBuy} className={styles.bookingButton}>
+                    Купить за {Flowers.price} ₽
+                </button>
+            </div>
 
-                        {/* Контакты */}
-                        <div className={`${styles.infoSection} ${styles.sidebarInfo}`}>
-                            <h2 className={styles.sectionTitle}><i className="fas fa-phone"></i> Контакты для заказа</h2>
-                            <p className={styles.infoText}>{contacts}</p>
-                            <p className={styles.infoText}>
-                                **Доставка:** 1-2 часа по городу.
-                            </p>
-                        </div>
-
-                        {/* Дополнительная информация */}
-                        <div className={`${styles.infoSection} ${styles.sidebarInfo}`}>
-                            <h2 className={styles.sectionTitle}><i className="fas fa-truck"></i> Гарантия свежести</h2>
-                            <p className={styles.infoText}>
-                                Мы гарантируем, что ваш букет будет свежим в течение 5 дней или мы заменим его бесплатно.
-                            </p>
-                        </div>
-                        
+            {/* 4. Контентная сетка */}
+            <div className={styles.mainGrid}>
+                
+                <div className={styles.mainDescription}>
+                    <div className={styles.infoSection}>
+                        <h2 className={styles.sectionTitle}>Описание и уход</h2>
+                        <p className={styles.description}>{description}</p>
                     </div>
                 </div>
-                
-                {/* Здесь могут быть другие секции: Похожие цветы, Отзывы и т.д. */}
-                <div className={styles.secondaryGrid}>
-                    {/* ... (Дополнительный контент) ... */}
+
+                <div className={styles.sidebar}>
+                    <div className={styles.sidebarCard}>
+                        <h2 className={styles.sectionTitle}>Рейтинг</h2>
+                        <div className={styles.rating}>
+                            {renderStars(rating)} 
+                            <span style={{color: '#888', marginLeft: '10px'}}>{rating}</span>
+                        </div>
+                    </div>
+
+                    <div className={styles.sidebarCard}>
+                        <h2 className={styles.sectionTitle}>Контакты</h2>
+                        <p className={styles.infoText}>{contacts}</p>
+                    </div>
+
+                    <div className={styles.sidebarCard}>
+                        <h2 className={styles.sectionTitle}>Доставка</h2>
+                        <p className={styles.infoText}>Свежие цветы прибудут к вам в течение 1.5 часов.</p>
+                    </div>
                 </div>
 
             </div>
         </div>
-    );
+    </div>
+);
 }
