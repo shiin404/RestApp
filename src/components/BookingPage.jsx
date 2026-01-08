@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate,Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { restaurant } from './AllPlace';
 import { SubscribeContext } from './SubscribeContext';
@@ -22,7 +22,10 @@ export default function BookingPage() {
             {/* Шапка как на скриншоте */}
             <header className={styles.header}>
                 <div className={styles.logo}>RestApp</div>
-                <button className={styles.profileBtn}>Profile</button>
+                <Link to = '/profile/1'>
+                    <button className={styles.profileBtn}>Profile</button>
+                </Link>
+                
             </header>
 
             <main className={styles.main}>

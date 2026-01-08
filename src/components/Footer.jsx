@@ -11,13 +11,13 @@ export default function Footer() {
           <h4>RestApp</h4>
           <p className={styles.topSlogan}>Лучшие сервисы для вашего комфорта</p>
           <div className={styles.footerSocialIcons}>
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href="https://wa.me/+77028872323" target="_blank" rel="noreferrer">
               <img src={whatspp} alt="WhatsApp" />
             </a>
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href="https://t.me/restapp_support" target="_blank" rel="noreferrer">
               <img src={telegram} alt="Telegram" />
             </a>
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/restapp.kz/" target="_blank" rel="noreferrer">
               <img src={instagram } alt="Instagram" />
             </a>
           </div>

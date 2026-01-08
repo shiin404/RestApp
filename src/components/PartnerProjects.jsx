@@ -2,16 +2,16 @@ import React from 'react';
 import styles from './PartnerProjects.module.css';
 
 // !!! ИМПОРТ ИЗОБРАЖЕНИЯ, КАК ВЫ ПРОСИЛИ !!!
-import rest_2 from "../assets/Rest 2.png";
+import banner16 from "../assets/banner16.gif";
 
 // Создаем массив, используя импортированную переменную rest_2
 const partnerBanners = [
-  rest_2,
-  rest_2,
-  rest_2,
-  rest_2,
-  rest_2, // Добавим больше, чтобы был виден скролл
-  rest_2,
+  banner16,
+  banner16,
+  banner16,
+  banner16,
+  banner16, // Добавим больше, чтобы был виден скролл
+  banner16,
 ];
 
 function PartnerProjects() {
