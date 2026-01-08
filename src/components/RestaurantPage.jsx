@@ -7,14 +7,20 @@ import styles from './RestaurantPage.module.css';
 
 // Иконки Font Awesome
 export default function RestaurantPage() {
+    
     const { id } = useParams();
+    const Rest = restaurant.find(item => item.id == id);
     let { sub, unsubscribe, subscribe } = useContext(SubscribeContext)
-    let isSub = sub[id] || false
+    let isSub = !!sub[id] 
+    const SubsComponent = () => (
+        <button className={styles.bookingButton} onClick={()=> (isSub ? unsubscribe(id) : subscribe(id,Rest.name))}>{isSub ? 'Отписаться':'Подписатсья'} </button>
+    );
     const BookingComponent = () => (
-        <button className={styles.bookingButton} onClick={()=> (isSub ? unsubscribe(id) : subscribe(id))}>{isSub ? 'Отписаться':'Подписатсья'} </button>
+        <Link to={`/booking/${Rest.id}`}>
+            <button className={styles.bookingButton} > Бронировать </button>
+        </Link>
     );
     
-    const Rest = restaurant.find(item => item.id == id);
 
     if (!Rest) return <h1 className={styles.notfound}>Ресторан не найден</h1>;
 
@@ -64,113 +70,94 @@ export default function RestaurantPage() {
     };
 
     return (
-        <div className={styles.container}>
+    <div className={styles.container}>
+        {/* Верхняя навигация */}
+        <header className={styles.header}>
+            <Link to="/" className={styles.back}>← К списку ресторанов</Link>
+            <div style={{fontSize: '18px', fontWeight: 'bold'}}>RestApp</div>
+        </header>
+
+        <div className={styles.content}>
             
-            {/* 1. Блок Героя (Обложка + Кнопка) */}
-            <div className={styles.hero}>
+            {/* Блок с изображением */}
+            <div className={styles.imageWrapper}>
                 <img src={Rest.imgrest} alt={Rest.name} className={styles.image} />
-                <div className={styles.top}>
-                    <Link to="/" className={styles.back}>← Назад</Link>
-                </div>
-                <div className={styles.heroContent}>
+            </div>
+
+            {/* Заголовок и кнопки управления */}
+            <div className={styles.infoHead}>
+                <div>
                     <h1 className={styles.title}>{Rest.name}</h1>
                     <div className={styles.ratingInfo}>
                         {renderStars(rating)} <span className={styles.ratingText}>{rating}</span>
                     </div>
-                    <div className={styles.bookingArea}>
-                         <BookingComponent />
-                    </div>
+                </div>
+                <div className={styles.actions}>
+                    <BookingComponent />
+                    <SubsComponent />
                 </div>
             </div>
 
-            <div className={styles.content}>
-                
-                {/* 2. Основная Информация и Меню */}
-                <div className={styles.mainGrid}>
-                    
-                    {/* Колонка 1: Описание и Адрес */}
-                    <div className={styles.mainColumn}>
-                        <div className={styles.section}>
-                            <h2 className={styles.sectionTitle}>КОНЦЕПЦИЯ</h2>
-                            <p className={styles.description}>{description}</p>
-                        </div>
-                        
-                        <div className={styles.section}>
-                            <h2 className={styles.sectionTitle}>АДРЕС</h2>
-                            <p className={styles.infoText}><i className="fas fa-map-marker-alt"></i> {address}</p>
-                            <a href={`tel:${contacts.phone}`} className={styles.infoTextLink}>
-                                <i className="fas fa-phone"></i> {contacts.phone}
-                            </a>
-                        </div>
-                        
-                        <div className={styles.section}>
-                            <h2 className={styles.sectionTitle}>ГРАФИК РАБОТЫ</h2>
-                            <details className={styles.scheduleDetails}>
-                                <summary>Показать расписание</summary>
-                                <ul className={styles.scheduleList}>
-                                    {schedule.map((item, index) => (
-                                        <li key={index} className={styles.scheduleItem}>
-                                            <span>{item.day}</span> <span>{item.time}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </details>
-                        </div>
+            <div className={styles.mainGrid}>
+                {/* Левая колонка */}
+                <div>
+                    <div className={styles.section}>
+                        <h2 className={styles.sectionTitle}>О концепции</h2>
+                        <p className={styles.description}>{description}</p>
                     </div>
 
-                    {/* Колонка 2: Меню */}
-                    <div className={styles.menuColumn}>
-                        <h2 className={styles.sectionTitle}>АВТОРСКОЕ МЕНЮ</h2>
-                        <div className={styles.menuGrid}>
-                            {menu.map((dish, index) => (
-                                <div key={index} className={styles.dishCard}>
-                                    <div className={styles.dishContent}>
-                                        <h3 className={styles.dishName}>{dish.name}</h3>
-                                        <p className={styles.dishDesc}>{dish.desc}</p>
-                                    </div>
-                                    <span className={styles.dishPrice}>{dish.price}</span>
-                                </div>
-                            ))}
-                        </div>
+                    <div className={styles.section} style={{marginTop: '40px'}}>
+                        <h2 className={styles.sectionTitle}>Контакты</h2>
+                        <p className={styles.infoText}>{address}</p>
+                        <p className={styles.infoText}>{contacts.phone}</p>
                     </div>
                 </div>
-                
-                {/* 3. Галерея и Отзывы */}
-                <div className={styles.secondaryGrid}>
-                    
-                    <div className={styles.galleryContainer}>
-                        <h2 className={styles.sectionTitle}>ГАЛЕРЕЯ</h2>
-                        <div className={styles.galleryGrid}>
-                            {gallery.map((img, index) => (
-                                <img key={index} src={img} alt={`Фото ${index + 1}`} className={styles.galleryImage} />
-                            ))}
+
+                {/* Правая колонка - Меню */}
+                <div className={styles.menuCard}>
+                    <h2 className={styles.sectionTitle}>Меню</h2>
+                    {menu.map((dish, index) => (
+                        <div key={index} className={styles.dishCard}>
+                            <div>
+                                <h3 className={styles.dishName}>{dish.name}</h3>
+                                <p className={styles.dishDesc}>{dish.desc}</p>
+                            </div>
+                            <span className={styles.dishPrice}>{dish.price}</span>
                         </div>
-                    </div>
+                    ))}
+                </div>
+            </div>
 
-                    <div className={styles.reviewsContainer}>
-                        <h2 className={styles.sectionTitle}>ОТЗЫВЫ</h2>
-                        <div className={styles.reviewsList}>
-                            {reviews.map((review, index) => (
-                                <div key={index} className={styles.reviewCard}>
-                                    <h4 className={styles.reviewName}>{review.name}</h4>
-                                    <p className={styles.reviewText}>{review.text}</p>
-                                </div>
-                            ))}
+            {/* Нижняя часть - Галерея и Отзывы */}
+            <div className={styles.mainGrid}>
+                <div>
+                    <h2 className={styles.sectionTitle}>Галерея</h2>
+                    <div className={styles.galleryGrid}>
+                        {gallery.map((img, index) => (
+                            <img key={index} src={img} className={styles.galleryImage} alt="rest" />
+                        ))}
+                    </div>
+                </div>
+                <div>
+                    <h2 className={styles.sectionTitle}>Последние отзывы</h2>
+                    {reviews.map((review, index) => (
+                        <div key={index} className={styles.reviewCard}>
+                            <div className={styles.reviewName}>{review.name}</div>
+                            <p className={styles.reviewText}>{review.text}</p>
                         </div>
-                    </div>
-
+                    ))}
                 </div>
+            </div>
 
-                {/* 4. Подписка */}
-                <div className={styles.subscribeContainer}>
-                    <h2 className={styles.sectionTitle}>ПОДПИСКА НА НОВОСТИ</h2>
-                    <form onSubmit={handleSubscribe} className={styles.subscribeForm}>
-                        <input type="email" name="email" placeholder="Email для эксклюзивных предложений" required className={styles.subscribeInput} />
-                        <button type="submit" className={styles.subscribeButton}>Подписаться</button>
-                    </form>
-                </div>
-
+            {/* Блок подписки */}
+            <div className={styles.subscribeBox}>
+                <h2 style={{margin: 0, fontSize: '20px'}}>Узнавайте о событиях первым</h2>
+                <form onSubmit={handleSubscribe}>
+                    <input className={styles.subscribeInput} type="email" name="email" placeholder="Ваш email" />
+                    <button className={styles.bookingButton} type="submit">OK</button>
+                </form>
             </div>
         </div>
-    );
+    </div>
+);
 }

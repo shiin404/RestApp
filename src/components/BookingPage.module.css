@@ -1,0 +1,131 @@
+.pageWrapper {
+    background-color: #000;
+    min-height: 100vh;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Шапка сайта */
+.header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+}
+
+.profileBtn {
+    background: #222;
+    border: none;
+    color: #fff;
+    padding: 6px 15px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Контент */
+.main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.backLink {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #888;
+    margin-bottom: 40px;
+}
+
+/* Карточка формы */
+.bookingCard {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    padding: 30px;
+    border-radius: 16px;
+}
+
+.field {
+    margin-bottom: 25px;
+}
+
+.label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.input {
+    width: 100%;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 15px;
+    color: #fff;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #444;
+    background: #151515;
+}
+
+/* Кнопки */
+.actionBtn {
+    width: 100%;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.1s ease;
+}
+
+.actionBtn:active {
+    transform: scale(0.98);
+}
+
+.confirm {
+    background-color: #fff;
+    color: #000;
+}
+
+.cancel {
+    background-color: #1a1a1a;
+    color: #ff4d4d;
+    margin-top: 15px;
+}
+
+.footerInfo {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 12px;
+    color: #444;
+}
