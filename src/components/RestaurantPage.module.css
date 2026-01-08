@@ -34,7 +34,7 @@
     padding: 0 20px;
 }
 
-/* Блок с фото (не на весь экран) */
+/* Блок с фото */
 .imageWrapper {
     width: 100%;
     height: 450px;
@@ -69,10 +69,8 @@
     gap: 12px;
 }
 
-.bookingButton {
-    background: #fff;
-    color: #000;
-    border: none;
+.bookingButton,
+.subButton {
     padding: 14px 28px;
     border-radius: 10px;
     font-weight: 600;
@@ -80,14 +78,16 @@
     white-space: nowrap;
 }
 
+.bookingButton {
+    background: #fff;
+    color: #000;
+    border: none;
+}
+
 .subButton {
     background: #111;
     color: #fff;
     border: 1px solid #222;
-    padding: 14px 28px;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
 }
 
 /* Сетки */
@@ -176,4 +176,71 @@
     color: #fff;
     width: 250px;
     margin-right: 10px;
+}
+
+/* ======================= */
+/* Адаптив */
+@media screen and (max-width: 1024px) {
+    .mainGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .imageWrapper {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .bookingButton,
+    .subButton {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .galleryGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .imageWrapper {
+        height: 250px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .dishName { font-size: 14px; }
+    .dishDesc { font-size: 12px; }
+    .dishPrice { font-size: 14px; }
+}
+
+@media screen and (max-width: 480px) {
+    .galleryGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .subscribeBox {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .subscribeInput {
+        width: 100%;
+        margin-right: 0;
+    }
 }
