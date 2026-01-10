@@ -55,9 +55,11 @@ export default function FlowerPage() {
             {/* 3. Заголовок и Кнопка */}
             <div className={styles.headerSection}>
                 <h1 className={styles.title}>{Flowers.name}</h1>
-                <button onClick={handleBuy} className={styles.bookingButton}>
-                    Купить за {Flowers.price} ₽
-                </button>
+                <Link to={`/buyflower/${id}`}>
+                    <button className={styles.bookingButton}>
+                        Заказать букет
+                    </button>
+                </Link>
             </div>
 
             {/* 4. Контентная сетка */}

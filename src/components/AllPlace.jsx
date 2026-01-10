@@ -29,8 +29,7 @@ export const flower = [
         id:1,
         name:'Ин лав',
         des:'Букеты от 15,000 ₸',
-        price:52000,
-        imgflower: flower_1,
+        imgflower: flower_1
     },
     {
         id:1,

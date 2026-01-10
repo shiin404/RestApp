@@ -81,6 +81,30 @@ function Profile() {
                     </div>
                 </div>
 
+                <div className={styles.infoSection}>
+                    <h2 className={styles.sectionTitle}>Заказы цветов</h2>
+                    <div className={styles.itemList}>
+                        {Object.entries(subs.Flower).map(([flowerId, flower]) => (
+                            <div key={flowerId} className={styles.bookingCard}>
+                                <div className={styles.itemInfo}>
+                                    <h3>{flower.name}</h3>
+                                    <p><strong>Сумма:</strong> {flower.price} ₽</p>
+                                    <p><strong>Кол-во:</strong> {flower.quantity} шт.</p>
+                                    <p className={styles.wishText} style={{borderTop: '1px solid #161616', marginTop: '10px', paddingTop: '10px'}}>
+                                        📍 {flower.address}
+                                    </p>
+                                </div>
+                                <button 
+                                    className={styles.deleteBtn} 
+                                    onClick={() => subs.deleteFlower(flowerId)}
+                                >
+                                    Отменить заказ
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                
             </div>
         </div>
     )

@@ -51,8 +51,33 @@ export const SubscribeProvider = ({ children }) => {
     useEffect(()=>{
         localStorage.setItem('booking',JSON.stringify(Booking))
     },[Booking])
+
+    const [Flower,SetFlower] = useState(()=>{
+        const savedFlower = localStorage.getItem('flower')
+        return savedFlower ? JSON.parse(savedFlower) : {}
+    })
+
+    const BuyFlower = (id,name,quantity,price,address)=>{
+        SetFlower((prev)=>({...prev,[id]:{
+            name:name,
+            price:price,
+            quantity:quantity,
+            address:address
+        }}))
+    }
+    const deleteFlower = (id)=>{
+        SetFlower((prev)=>{
+            const copyFlower = {...prev}
+            delete copyFlower[id]
+            return copyFlower
+        })
+    }
+    useEffect(()=>{
+        localStorage.setItem('flower',JSON.stringify(Flower))
+    },[Flower])
+
     return (
-        <SubscribeContext.Provider value={{ sub, unsubscribe, subscribe,Booking,AddBooking,deleteBooking}}>
+        <SubscribeContext.Provider value={{ sub, unsubscribe, subscribe,Booking,AddBooking,deleteBooking,Flower,BuyFlower,deleteFlower}}>
             {children}
         </SubscribeContext.Provider>
     );
