@@ -1,5 +1,5 @@
 import banner16 from "../assets/banner16.gif";
-import banner17 from "../assets/banner17.gif";
+
 export const flowers = [
     {
         imgflower:banner16,
