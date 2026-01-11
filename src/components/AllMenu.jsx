@@ -1,18 +1,19 @@
-import banner16 from "../assets/banner16.gif";
+import banner16 from "../assets/rose.jpg";
+import banner17 from "../assets/pion.png";
 
 export const flowers = [
     {
         imgflower:banner16,
         id:1,
-        name:'Название цветов',
-        quantity:20,
-        price:2000
+        name:'Розы',
+        quantity:17,
+        price:5000
     },
     {
-        imgflower:banner16,
+        imgflower:banner17,
         id:2,
-        name:'asdasdasdв',
-        quantity:2022,
-        price:2001230
+        name:'Пионы',
+        quantity:17,
+        price:7000
     }
 ]

@@ -29,22 +29,24 @@ export default function Place(){
                         </Link>
                     ))}
                 </div>
+                <div className= {styles.morelink}><a href="#">→ Все рестораны</a></div>
             </section>
 
             <section className={styles.flowers}>
-                <h2>Отели </h2>
+                <h2>Гостиницы</h2>
                 <div className={styles.flowersrow}>
                     {hotel.map((element)=>(
                         <Link key={element.id} to={`/hotel/${element.id}`}>
                             <div className={styles.flowercard}>
                                 <img src={element.imghotel} alt="Отель"/>
                                 <div className={styles.flowername}>{element.name}</div>
-                                <div className={styles.price}>Средняя стоимость номера {element.cheque}</div>
+                                <div className={styles.price}>Стоимость номера {element.cheque}</div>
                                 
                             </div>
                         </Link>
                     ))}
                 </div>
+                <div className= {styles.morelink}><a href="#">→ Все гостиницы</a></div>
             </section>
             <section className={styles.flowers}>
                 <h2>Цветочные магазины</h2>

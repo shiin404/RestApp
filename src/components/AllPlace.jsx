@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import flower_1 from "../assets/flower 1.png";
 import flower_2 from "../assets/flower 2.png";
 import styles from './RestaurantPage.module.css';
-import hotelimg from "../assets/hotel.jpg";
+import hotelimg from "../assets/hotel.png";
 export const restaurant = [
     {
         id:1,
         name:'Tirol',
         des:'Ресторан, где Европа оживает в каждом блюде. Мы соединяем классические рецепты и современные вкусы, чтобы вы почувствовали дух настоящей вкусной кухни.',
         imgrest: rest_2,
-        cheque:'24000₸',
+        cheque:'24,000₸',
         booking: function(){
             return <Link to={`/booking/${this.id}`}><button className={styles.bookButton}>Забронировать</button></Link>
         }
@@ -21,7 +21,7 @@ export const restaurant = [
         name:'Baoli',
         des:'Уютное пространство с атмосферой вкуса и комфорта, где можно насладиться отдыхом, хорошей компанией и приятной атмосферой.',
         imgrest: rest_1,
-        cheque:'24000₸',
+        cheque:'24,000₸',
         booking: function(){
             return <Link to={`/booking/${this.id}`}><button className={styles.bookButton}>Забронировать</button></Link>
         }
@@ -48,6 +48,6 @@ export const hotel = [
         name:'Отель',
         des:'Уютное пространство с атмосферой вкуса и комфорта, где можно насладиться отдыхом, хорошей компанией и приятной атмосферой.',
         imghotel: hotelimg,
-        cheque:'24000₸',
+        cheque:'24,000₸',
     }
 ]

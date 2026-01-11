@@ -13,7 +13,7 @@ export default function BuyFlower() {
 
     const FIXED_PRICE = 1000;
 
-    const [nameFlower, Setname] = useState(Myflower?.name || '');
+    const [nameFlower, Setname] = useState('');
     const [quantityFlower, Setquantity] = useState(1);
     const [Address, Setaddress] = useState("");
     const [FlowerSet, Setflower] = useState(0);
