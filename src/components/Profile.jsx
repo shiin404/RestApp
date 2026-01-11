@@ -19,7 +19,7 @@ function Profile() {
             <div className={styles.contentWrapper}>
 
                 <Link to="/" className={styles.backButton}>
-                    ← На главную
+                    ← На главную 
                 </Link>
 
                 <div className={styles.profileHeader}>
