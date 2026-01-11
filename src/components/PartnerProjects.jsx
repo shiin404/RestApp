@@ -3,7 +3,6 @@ import styles from './PartnerProjects.module.css';
 
 // !!! ИМПОРТ ИЗОБРАЖЕНИЯ, КАК ВЫ ПРОСИЛИ !!!
 import banner16 from "../assets/banner16.gif";
-import banner17 from "../assets/banner17.gif";
 import banner18 from "../assets/banner18.gif";
 import banner19 from "../assets/banner19.gif";
 import banner20 from "../assets/banner20.gif";
@@ -12,7 +11,6 @@ import banner21 from "../assets/banner21.gif";
 // Создаем массив, используя импортированную переменную rest_2
 const partnerBanners = [
   banner16,
-  banner17,
   banner18,
   banner19,
   banner20, // Добавим больше, чтобы был виден скролл
