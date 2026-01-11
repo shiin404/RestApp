@@ -3,11 +3,12 @@ import styles from './PartnerProjects.module.css';
 
 // !!! ИМПОРТ ИЗОБРАЖЕНИЯ, КАК ВЫ ПРОСИЛИ !!!
 import banner16 from "../assets/banner16.gif";
-
+import banner17 from "../assets/banner17.GIF";
 
 // Создаем массив, используя импортированную переменную rest_2
 const partnerBanners = [
   banner16,
+  banner17
 
 ];
 
