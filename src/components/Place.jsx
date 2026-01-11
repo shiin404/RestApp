@@ -8,43 +8,44 @@ import flower_2 from "../assets/flower 2.png";
 import { Link } from "react-router-dom";
 import  {restaurant} from './AllPlace';
 import  {flower} from './AllPlace';
-import hotel from "../assets/hotel.jpg";
+import  {hotel} from './AllPlace';
 import { useState } from 'react';
 
 export default function Place(){
 
     return(
         <div>
-            <section className={styles.restaurants}>
-                <div>
-                    <h2>Рестораны</h2>
+            <section className={styles.flowers}>
+                <h2>Рестораны </h2>
+                <div className={styles.flowersrow}>
                     {restaurant.map((element)=>(
-                        <Link key = {element.id} to={`/restaurant/${element.id}`}>
-                            <article className={styles.restaurantcard}>
+                        <Link key={element.id} to={`/restaurant/${element.id}`}>
+                            <div className={styles.flowercard}>
                                 <img src={element.imgrest} alt="Ресторан"/>
-                                <div className={styles.cardinfo}>
-                                    <h3>{element.name}</h3>
-                                    <p className={styles.desc}>{element.des}</p>
-                                </div>
-                            </article>
+                                <div className={styles.flowername}>{element.name}</div>
+                                <div className={styles.price}>Средний чек {element.cheque}</div>
+                                
+                            </div>
                         </Link>
                     ))}
-                    
-                    <div className={styles.morelink}><a href="#">→ Все рестораны</a></div>
                 </div>
             </section>
 
-            <section className={styles.hotels}>
-                <h2>Гостиницы</h2>
-                <div className={styles.hotelsrow}>
-                    <div className={styles.hotelcard}>
-                        <img src={hotel} alt="Отель"/>
-                        <div className={styles.hotelname}></div>
-                    </div>
+            <section className={styles.flowers}>
+                <h2>Отели </h2>
+                <div className={styles.flowersrow}>
+                    {hotel.map((element)=>(
+                        <Link key={element.id} to={`/hotel/${element.id}`}>
+                            <div className={styles.flowercard}>
+                                <img src={element.imghotel} alt="Отель"/>
+                                <div className={styles.flowername}>{element.name}</div>
+                                <div className={styles.price}>Средняя стоимость номера {element.cheque}</div>
+                                
+                            </div>
+                        </Link>
+                    ))}
                 </div>
-                <div className={styles.morelink}><a href="#">→ Все гостиницы</a></div>
             </section>
-
             <section className={styles.flowers}>
                 <h2>Цветочные магазины</h2>
 

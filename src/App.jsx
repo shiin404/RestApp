@@ -5,6 +5,8 @@ import BookingPage from "./components/BookingPage"
 import RestaurantPage from './components/RestaurantPage'
 import FlowerPage from './components/FlowerPage'
 import BuyFlower from './components/BuyFlower'
+import BookingHotel from './components/BookingHotel'
+
 import {SubscribeProvider} from './components/SubscribeContext'
 export default function App() {
   return (
@@ -17,6 +19,7 @@ export default function App() {
           <Route path="/booking/:id" element={<BookingPage />} />
           <Route path="/flower/:id" element={< FlowerPage />} />
           <Route path="/buyflower/:id" element={<BuyFlower/>}/>
+          <Route path="/hotel/:id" element={<BookingHotel/>}/>
         </Routes>
       </BrowserRouter>
     </SubscribeProvider>
