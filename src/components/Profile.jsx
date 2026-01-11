@@ -86,14 +86,27 @@ function Profile() {
                     <div className={styles.itemList}>
                         {Object.entries(subs.Flower).map(([flowerId, flower]) => (
                             <div key={flowerId} className={styles.bookingCard}>
-                                <div className={styles.itemInfo}>
-                                    <h3>{flower.name}</h3>
-                                    <p><strong>Сумма:</strong> {flower.price} ₽</p>
-                                    <p><strong>Кол-во:</strong> {flower.quantity} шт.</p>
-                                    <p className={styles.wishText} style={{borderTop: '1px solid #161616', marginTop: '10px', paddingTop: '10px'}}>
-                                        📍 {flower.address}
-                                    </p>
+                                <div className={styles.orderHeader}>
+                                    {/* Контейнер для фото */}
+                                    <div className={styles.orderImageWrapper}>
+                                        <img 
+                                            src={flower.imgflower || flower.imgf} 
+                                            alt={flower.name} 
+                                            className={styles.orderImage} 
+                                        />
+                                    </div>
+                                    
+                                    <div className={styles.orderDetails}>
+                                        <h3 className={styles.flowerName}>{flower.name}</h3>
+                                        <p className={styles.priceText}>{flower.price} ₸</p>
+                                        <p className={styles.quantityText}>{flower.quantity} шт.</p>
+                                    </div>
                                 </div>
+
+                                <p className={styles.addressLine}>
+                                    📍 {flower.address}
+                                </p>
+
                                 <button 
                                     className={styles.deleteBtn} 
                                     onClick={() => subs.deleteFlower(flowerId)}
@@ -104,7 +117,6 @@ function Profile() {
                         ))}
                     </div>
                 </div>
-                
             </div>
         </div>
     )

@@ -57,12 +57,13 @@ export const SubscribeProvider = ({ children }) => {
         return savedFlower ? JSON.parse(savedFlower) : {}
     })
 
-    const BuyFlower = (id,name,quantity,price,address)=>{
+    const BuyFlower = (id,name,quantity,price,address,imgf)=>{
         SetFlower((prev)=>({...prev,[id]:{
             name:name,
             price:price,
             quantity:quantity,
-            address:address
+            address:address,
+            imgf:imgf
         }}))
     }
     const deleteFlower = (id)=>{

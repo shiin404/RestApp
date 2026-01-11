@@ -190,3 +190,76 @@
     font-size: 18px !important;
     font-weight: 700;
 }
+.divider {
+    text-align: center;
+    font-size: 10px;
+    color: #444;
+    letter-spacing: 2px;
+    margin: 25px 0;
+    position: relative;
+}
+
+.setGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setItem {
+    display: flex;
+    align-items: center;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 16px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.setItem:hover {
+    border-color: #333;
+}
+
+.activeSet {
+    border-color: #fff;
+    background: #161616;
+}
+
+.setImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.setInfo h3 {
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+}
+
+.setInfo p {
+    font-size: 12px;
+    color: #666;
+    margin: 2px 0 0 0;
+}
+
+.setInfo span {
+    color: #fff;
+    font-weight: bold;
+}
+
+.checkMark {
+    position: absolute;
+    right: 15px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.disabledSection {
+    opacity: 0.4;
+    pointer-events: none;
+    filter: grayscale(1);
+}
