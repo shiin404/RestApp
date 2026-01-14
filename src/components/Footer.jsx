@@ -26,19 +26,9 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4>Навигация</h4>
           <ul>
-            <li><a href="#">Рестораны</a></li>
-            <li><a href="#">Гостиницы</a></li>
-            <li><a href="#">Цветочные магазины</a></li>
-            <li><a href="#">Популярное</a></li>
-          </ul>
-        </div>
-
-        <div className={styles.footerCol}>
-          <h4>Компания</h4>
-          <ul>
-            <li><a href="#">О проекте</a></li>
-            <li><a href="#">Контакты</a></li>
-            <li><a href="#">Поддержка</a></li>
+            <li><a href="restaurants">Рестораны</a></li>
+            <li><a href="hotels">Гостиницы</a></li>
+            <li><a href="flowers">Цветочные магазины</a></li>
           </ul>
         </div>
 

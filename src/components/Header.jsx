@@ -41,7 +41,7 @@ export default function Header() {
           <Link to="/" onClick={toggleMenu}>Главная</Link>
           <Link to="/restaurants" onClick={toggleMenu}>Рестораны</Link>
           <Link to="/hotels" onClick={toggleMenu}>Гостиницы</Link>
-          <Link to="/flowers" onClick={toggleMenu}>Цветы</Link>
+          <Link to="/flowers" onClick={toggleMenu}>Цветочные</Link>
         </nav>
       </div>
     </>
