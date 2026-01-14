@@ -148,15 +148,6 @@ export default function RestaurantPage() {
                     ))}
                 </div>
             </div>
-
-            {/* Блок подписки */}
-            <div className={styles.subscribeBox}>
-                <h2 style={{margin: 0, fontSize: '20px'}}>Узнавайте о событиях первым</h2>
-                <form onSubmit={handleSubscribe}>
-                    <input className={styles.subscribeInput} type="email" name="email" placeholder="Ваш email" />
-                    <button className={styles.bookingButton} type="submit">OK</button>
-                </form>
-            </div>
         </div>
     </div>
 );

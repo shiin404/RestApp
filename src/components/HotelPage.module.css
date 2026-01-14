@@ -1,166 +1,254 @@
 .container {
     background-color: #000;
-    min-height: 100vh;
     color: #fff;
+    min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden; /* Защита от горизонтального вылета всей страницы */
 }
 
-.wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px 50px;
-}
-
-/* Header */
 .header {
-    height: 80px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 40px;
+    border-bottom: 1px solid #111;
 }
 
-.logo {
-    color: #fff;
+.back {
+    color: #888;
     text-decoration: none;
-    font-size: 22px;
-    font-weight: 800;
+    font-size: 14px;
 }
 
-.profileBtn {
-    background: #111;
-    border: 1px solid #222;
-    color: #fff;
-    padding: 8px 20px;
-    border-radius: 10px;
-    cursor: pointer;
+.content {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-/* Image */
-.imageContainer {
+.imageWrapper {
     width: 100%;
     height: 450px;
-    position: relative;
     border-radius: 24px;
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    border: 1px solid #1a1a1a;
 }
 
-.mainImage {
+.image {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.imageOverlay {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
-
-.backLink {
-    color: #fff;
-    text-decoration: none;
-    background: rgba(0,0,0,0.5);
-    padding: 8px 15px;
-    border-radius: 50px;
-    backdrop-filter: blur(5px);
-    font-size: 14px;
-}
-
-/* Header Section */
-.headerSection {
+.infoHead {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
 .title {
-    font-size: 36px;
-    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
 }
 
-.location {
-    color: #888;
-    margin: 5px 0 0 0;
+.actions {
+    display: flex;
+    gap: 12px;
+}
+
+.bookingButton, .subButton {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    border: none;
 }
 
 .bookingButton {
     background: #fff;
     color: #000;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 14px;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    transition: transform 0.2s;
 }
 
-.bookingButton:hover {
-    transform: translateY(-2px);
+.subButton {
+    background: #111;
+    color: #fff;
+    border: 1px solid #333;
 }
 
-/* Grid Layout */
 .mainGrid {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 40px;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    margin-bottom: 80px;
 }
 
 .sectionTitle {
-    font-size: 20px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #444;
+    text-transform: uppercase;
     margin-bottom: 20px;
 }
 
 .description {
-    color: #ccc;
+    font-size: 18px;
     line-height: 1.6;
-    font-size: 16px;
+    color: #aaa;
 }
 
-.amenities {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.amenities span {
-    background: #111;
-    border: 1px solid #222;
-    padding: 6px 15px;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #888;
-}
-
-/* Sidebar */
-.infoCard {
+.menuCard {
     background: #0a0a0a;
     border: 1px solid #161616;
     border-radius: 20px;
-    padding: 25px;
+    padding: 30px;
 }
 
-.infoRow {
+.dishCard {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #1a1a1a;
 }
 
-.priceText {
+/* --- ГАЛЕРЕЯ СО СКРОЛЛОМ --- */
+.galleryWrapper {
+    width: 100%;
+    overflow-x: auto; /* Включаем горизонтальный скролл */
+    padding-bottom: 15px; /* Место для полосы прокрутки */
+    scrollbar-width: none; /* Прячем скроллбар в Firefox */
+}
+
+.galleryWrapper::-webkit-scrollbar {
+    display: none; /* Прячем скроллбар в Chrome/Safari */
+}
+
+.galleryGrid {
+    display: flex; /* Вместо Grid используем Flex для скролла */
+    gap: 15px;
+}
+
+.galleryImage {
+    min-width: 280px; /* Фиксированная ширина картинки при скролле */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+    flex-shrink: 0;
+}
+
+.reviewCard {
+    padding: 20px 0;
+    border-bottom: 1px solid #111;
+}
+
+.reviewName { font-size: 14px; font-weight: bold; margin-bottom: 5px;}
+.reviewText { font-size: 14px; color: #666; line-height: 1.5; }
+
+.subscribeBox {
+    margin-top: 60px;
+    background: #111;
+    padding: 30px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.subscribeInput {
+    background: #000;
+    border: 1px solid #222;
+    padding: 14px 20px;
+    border-radius: 12px;
     color: #fff;
-    font-size: 18px;
+    width: 100%;
+    max-width: 300px;
 }
 
-.divider {
-    border: 0;
-    border-top: 1px solid #222;
-    margin: 20px 0;
+.starFilled { color: #ffcc00; margin-right: 2px; }
+.starEmpty { color: #333; margin-right: 2px; }
+.ratingText { margin-left: 8px; font-weight: bold; }
+
+/* ========================================= */
+/* АДАПТИВ (Mobile & Tablet) */
+/* ========================================= */
+
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 0 20px;
+    }
+
+    .content {
+        padding: 0 15px;
+        margin-top: 20px;
+    }
+
+    .imageWrapper {
+        height: 250px;
+        margin-bottom: 25px;
+        border-radius: 16px;
+    }
+
+    .infoHead {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 35px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .actions {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .actions > *, .actions a {
+        flex: 1;
+        width: 100%;
+    }
+
+    .bookingButton, .subButton {
+        width: 100%;
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    .mainGrid {
+        grid-template-columns: 1fr; /* Колонки друг под другом */
+        gap: 35px;
+        margin-bottom: 50px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .menuCard {
+        padding: 20px;
+    }
+
+    /* На мобилке картинки в галерее чуть меньше, чтобы было видно край следующей */
+    .galleryImage {
+        min-width: 240px;
+        height: 180px;
+    }
 }
 
-.contacts {
-    color: #666;
-    font-size: 14px;
-    line-height: 1.5;
+@media screen and (max-width: 480px) {
+    .actions {
+        flex-direction: column; /* Кнопки одна под другой на очень маленьких экранах */
+    }
+
+    .subscribeBox {
+        padding: 20px;
+    }
 }

@@ -8,7 +8,7 @@ import hotelimg from "../assets/hotel.png";
 import hotelimg2 from "../assets/hotel2.jpg";
 export const restaurant = [
     {
-        id:1,
+        id:11,
         name:'Tirol',
         des:'Ресторан, где Европа оживает в каждом блюде. Мы соединяем классические рецепты и современные вкусы, чтобы вы почувствовали дух настоящей вкусной кухни.',
         imgrest: rest_2,
@@ -18,7 +18,7 @@ export const restaurant = [
         }
     },
     {
-        id:2,
+        id:12,
         name:'Baoli',
         des:'Уютное пространство с атмосферой вкуса и комфорта, где можно насладиться отдыхом, хорошей компанией и приятной атмосферой.',
         imgrest: rest_1,
@@ -30,13 +30,13 @@ export const restaurant = [
 ]
 export const flower = [
     {
-        id:1,
+        id:21,
         name:'Ин лав',
         des:'Букеты от 15,000 ₸',
         imgflower: flower_1
     },
     {
-        id:2,
+        id:22,
         name:'Florist',
         des:'Букеты от 15,000 ₸',
         price:52000,
@@ -45,14 +45,14 @@ export const flower = [
 ]
 export const hotel = [
     {
-        id:1,
+        id:31,
         name:'Отель',
         des:'Уютное пространство с атмосферой вкуса и комфорта, где можно насладиться отдыхом, хорошей компанией и приятной атмосферой.',
         imghotel: hotelimg,
         cheque:'24,000₸',
     },
     {
-        id:2,
+        id:32,
         name:'Отель #2',
         des:'Уютное пространство с атмосферой вкуса и комфорта, где можно насладиться отдыхом, хорошей компанией и приятной атмосферой.',
         imghotel: hotelimg2,

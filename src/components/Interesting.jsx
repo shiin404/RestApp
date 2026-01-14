@@ -8,46 +8,17 @@ import banner9 from "../assets/banner9.jpg";
 import banner10 from "../assets/banner10.jpg";
 
 export default function Interesting() {
+    const banners = [banner5, banner6, banner7, banner8, banner9, banner10];
+
     return (
-        <section className={styles.interesting} style={{ marginTop: "24px" }}>
+        <section className={styles.interesting}>
             <h2>Интересное</h2>
-
-            <div className={`${styles.interestinggrid} ${styles.spacing}`}>
-
-                <div className={`${styles.interestingrow} ${styles.three}`}>
-                    <div className={styles.interestingitem}>
-                        <img src={banner5} alt="Banner5" />
-
+            <div className={styles.interestinggrid}>
+                {banners.map((src, index) => (
+                    <div key={index} className={styles.interestingitem}>
+                        <img src={src} alt={`Banner${index + 5}`} />
                     </div>
-
-                    <div className={styles.interestingitem}>
-                        <img src={banner6} alt="Banner6" />
-
-                    </div>
-
-                    <div className={styles.interestingitem}>
-                        <img src={banner7} alt="Banner7" />
-
-                    </div>
-                </div>
-
-                <div className={`${styles.interestingrow} ${styles.three}`}>
-                    <div className={styles.interestingitem}>
-                        <img src={banner8} alt="Banner8" />
-
-                    </div>
-
-                    <div className={styles.interestingitem}>
-                        <img src={banner9} alt="Banner9" />
-
-                    </div>
-
-                    <div className={styles.interestingitem}>
-                        <img src={banner10} alt="Banner10" />
-
-                    </div>
-                </div>
-
+                ))}
             </div>
         </section>
     );
