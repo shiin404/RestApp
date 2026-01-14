@@ -1,5 +1,5 @@
 // RestaurantPage.js - Полный код с рабочими изображениями
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { restaurant } from './AllPlace';
 import { SubscribeContext } from './SubscribeContext';
@@ -11,6 +11,10 @@ export default function RestaurantPage() {
     const Rest = restaurant.find(item => item.id == id);
     let { sub, unsubscribe, subscribe } = useContext(SubscribeContext)
     let isSub = !!sub[id] 
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
 
     const SubsComponent = () => (
         <button className={styles.bookingButton} onClick={()=> (isSub ? unsubscribe(id) : subscribe(id,Rest.name))}>
@@ -70,7 +74,7 @@ export default function RestaurantPage() {
     <div className={styles.container}>
         {/* Верхняя навигация */}
         <header className={styles.header}>
-            <Link to="/restaurants" className={styles.back}>← Назад</Link>
+            <Link to="/" className={styles.back}>← На главную</Link>
             <div style={{fontSize: '18px', fontWeight: 'bold'}}>RestApp</div>
         </header>
 

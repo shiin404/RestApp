@@ -11,7 +11,37 @@
   display: flex;
   justify-content: center;
 }
+.headeractions {
+    display: flex;
+    align-items: center;
+}
 
+.profileLink {
+    display: flex;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.profileLink:hover {
+    opacity: 0.8; /* Эффект при наведении на аватарку */
+}
+
+.avatar {
+    width: 40px;          /* Размер аватарки */
+    height: 40px;
+    border-radius: 50%;   /* Круглая форма */
+    object-fit: cover;    /* Чтобы фото не сжималось */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Тонкая стильная обводка */
+    display: block;
+}
+
+/* Для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .avatar {
+        width: 35px;
+        height: 35px;
+    }
+}
 .headercontainer {
   width: 100%;
   max-width: 1100px;

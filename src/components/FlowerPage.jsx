@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { flower } from './AllPlace'; // Используем твой массив цветов
 import { SubscribeContext } from './SubscribeContext';
@@ -9,6 +9,11 @@ export default function FlowerPage() {
     const Flowers = flower.find(item => item.id == id);
     let { sub, unsubscribe, subscribe } = useContext(SubscribeContext);
     let isSub = !!sub[id];
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
+
 
     // Компоненты кнопок в стиле референса
     const SubsComponent = () => (
@@ -60,7 +65,7 @@ export default function FlowerPage() {
         <div className={styles.container}>
             {/* Верхняя навигация */}
             <header className={styles.header}>
-                <Link to="/" className={styles.back}>← К списку цветов</Link>
+                <Link to="/" className={styles.back}>← На главную</Link>
                 <div style={{fontSize: '18px', fontWeight: 'bold'}}>RestApp Flowers</div>
             </header>
 

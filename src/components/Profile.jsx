@@ -2,12 +2,16 @@ import { Profiles } from './AllProfile'
 import { useParams, Link } from "react-router-dom";
 import styles from './Profile.module.css' // убедись, что имя файла совпадает
 import { SubscribeContext } from './SubscribeContext';
-import { useContext } from 'react';
+import { useContext,useEffect} from 'react';
 
 function Profile() {
     let { id } = useParams()
     let ProfilePerson = Profiles.find(element => element.id == id)
-
+    
+    useEffect(() => {
+            window.scrollTo(0, 0);
+        }, [id]);
+    
     const subs = useContext(SubscribeContext)
 
     if (!ProfilePerson) {

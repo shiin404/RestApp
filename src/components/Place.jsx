@@ -21,6 +21,23 @@ export default function Place() {
                 </div>
                 <div className={styles.morelink}><a href="restaurants">→ Все рестораны</a></div>
             </section>
+            
+            {/* Гостиницы */}
+            <section className={styles.flowers}>
+                <h2>Гостиницы</h2>
+                <div className={styles.flowersrow}>
+                    {hotel.map((element) => (
+                        <Link key={element.id} to={`/hotel/${element.id}`} className={styles.cardLink}>
+                            <div className={styles.flowercard}>
+                                <img src={element.imghotel} alt="Отель" />
+                                <div className={styles.flowername}>{element.name}</div>
+                                <div className={styles.price}>Стоимость номера {element.cheque}</div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+                <div className={styles.morelink}><a href="hotels">→ Все гостиницы</a></div>
+            </section>
 
             {/* Цветочные магазины */}
             <section className={styles.flowers}>
@@ -37,23 +54,6 @@ export default function Place() {
                     ))}
                 </div>
                 <div className={styles.morelink}><a href="flowers">→ Все цветочные магазины</a></div>
-            </section>
-
-            {/* Гостиницы */}
-            <section className={styles.flowers}>
-                <h2>Гостиницы</h2>
-                <div className={styles.flowersrow}>
-                    {hotel.map((element) => (
-                        <Link key={element.id} to={`/hotel/${element.id}`} className={styles.cardLink}>
-                            <div className={styles.flowercard}>
-                                <img src={element.imghotel} alt="Отель" />
-                                <div className={styles.flowername}>{element.name}</div>
-                                <div className={styles.price}>Стоимость номера {element.cheque}</div>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-                <div className={styles.morelink}><a href="hotels">→ Все гостиницы</a></div>
             </section>
 
         </div>
