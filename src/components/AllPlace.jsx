@@ -33,14 +33,15 @@ export const flower = [
         id:21,
         name:'Ин лав',
         des:'Букеты от 15,000 ₸',
-        imgflower: flower_1
+        imgflower: flower_1,
+        cheque:'24,000₸',
     },
     {
         id:22,
         name:'Florist',
         des:'Букеты от 15,000 ₸',
-        price:52000,
         imgflower: flower_2,
+        cheque:'24,000₸',
     },
 ]
 export const hotel = [

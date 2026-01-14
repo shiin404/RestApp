@@ -8,6 +8,8 @@ import BuyFlower from './components/BuyFlower'
 import HotelPage from './components/HotelPage'
 import Bookhotel from './components/Bookhotel'
 import Allrest from './components/Allrest'
+import Allhotel from './components/Allhotel'
+import Allflowers from './components/Allflowers'
 import {SubscribeProvider} from './components/SubscribeContext'
 export default function App() {
   return (
@@ -23,6 +25,8 @@ export default function App() {
           <Route path="/hotel/:id" element={<HotelPage/>}/>
           <Route path="/bookhotel/:id" element={<Bookhotel/>}/>
           <Route path="/restaurants" element={<Allrest/>}/>
+          <Route path="/hotels" element={<Allhotel/>}/>
+          <Route path="/flowers" element={<Allflowers/>}/>
         </Routes>
       </BrowserRouter>
     </SubscribeProvider>

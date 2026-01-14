@@ -16,7 +16,7 @@ export default function FlowerPage() {
             className={`${styles.bookingButton} ${isSub ? styles.subButtonActive : ''}`} 
             onClick={() => (isSub ? unsubscribe(id) : subscribe(id, Flowers.name))}
         >
-            {isSub ? 'В избранном' : 'В избранное'}
+            {isSub ? 'Отписаться' : 'Подписаться'}
         </button>
     );
 
