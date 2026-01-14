@@ -13,7 +13,7 @@ export default function FlowerPage() {
     // Компоненты кнопок в стиле референса
     const SubsComponent = () => (
         <button 
-            className={`${styles.bookingButton} ${isSub ? styles.subButtonActive : ''}`} 
+            className={`${styles.bookingButton}`} 
             onClick={() => (isSub ? unsubscribe(id) : subscribe(id, Flowers.name))}
         >
             {isSub ? 'Отписаться' : 'Подписаться'}
@@ -34,9 +34,9 @@ export default function FlowerPage() {
     
     // Характеристики букета (вместо меню)
     const specs = [
-        { name: 'Состав', desc: 'Розы, Эвкалипт, авторская упаковка', price: Flowers.price + ' ₽' },
+        { name: 'Состав', desc: 'Розы, Эвкалипт, авторская упаковка', price: Flowers.cheque },
         { name: 'Высота', desc: 'Примерно 50-60 см', price: 'Standard' },
-        { name: 'Доставка', desc: 'В пределах города бесплатно', price: '0 ₽' },
+        { name: 'Доставка', desc: 'В пределах города бесплатно', price: '1000 ₸' },
     ];
 
     const gallery = Flowers.gallery || [Flowers.imgflower, Flowers.imgflower, Flowers.imgflower];

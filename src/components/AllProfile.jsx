@@ -1,7 +1,7 @@
-import human from "../assets/human2.png";
+import human from "../assets/human2.jpg";
 export const Profiles =[
     {
-        name:'Samir',
+        name:'Пользователь',
         password:'1234',
         id:1,
         avatar:human,

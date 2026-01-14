@@ -31,7 +31,7 @@ export default function Place() {
                             <div className={styles.flowercard}>
                                 <img src={element.imgflower} alt="Цветочная" />
                                 <div className={styles.flowername}>{element.name}</div>
-                                <div className={styles.price}>{element.des}</div>
+                                <div className={styles.price}>Букеты от {element.cheque}</div>
                             </div>
                         </Link>
                     ))}

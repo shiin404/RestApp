@@ -3,7 +3,7 @@
     color: #fff;
     min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    overflow-x: hidden; /* Защита от горизонтального вылета всей страницы */
+    overflow-x: hidden; 
 }
 
 .header {
@@ -76,9 +76,8 @@
 }
 
 .subButton {
-    background: #111;
-    color: #fff;
-    border: 1px solid #333;
+    background: white;
+    color: black;
 }
 
 .mainGrid {
@@ -116,29 +115,22 @@
     border-bottom: 1px solid #1a1a1a;
 }
 
-/* --- ГАЛЕРЕЯ СО СКРОЛЛОМ --- */
+/* --- ГАЛЕРЕЯ (Стандартный вид - 3 в ряд) --- */
 .galleryWrapper {
     width: 100%;
-    overflow-x: auto; /* Включаем горизонтальный скролл */
-    padding-bottom: 15px; /* Место для полосы прокрутки */
-    scrollbar-width: none; /* Прячем скроллбар в Firefox */
-}
-
-.galleryWrapper::-webkit-scrollbar {
-    display: none; /* Прячем скроллбар в Chrome/Safari */
 }
 
 .galleryGrid {
-    display: flex; /* Вместо Grid используем Flex для скролла */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 картинки в ряд на ПК */
     gap: 15px;
 }
 
 .galleryImage {
-    min-width: 280px; /* Фиксированная ширина картинки при скролле */
+    width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 16px;
-    flex-shrink: 0;
 }
 
 .reviewCard {
@@ -223,7 +215,7 @@
     }
 
     .mainGrid {
-        grid-template-columns: 1fr; /* Колонки друг под другом */
+        grid-template-columns: 1fr;
         gap: 35px;
         margin-bottom: 50px;
     }
@@ -236,16 +228,26 @@
         padding: 20px;
     }
 
-    /* На мобилке картинки в галерее чуть меньше, чтобы было видно край следующей */
+    /* --- ГАЛЕРЕЯ НА ТЕЛЕФОНЕ --- */
+    .galleryWrapper {
+        overflow: visible; /* Отключаем скролл */
+    }
+
+    .galleryGrid {
+        display: flex;
+        flex-direction: column; /* Картинки спускаются вниз */
+        gap: 15px;
+    }
+
     .galleryImage {
-        min-width: 240px;
-        height: 180px;
+        min-width: 100%; /* Картинка на всю ширину */
+        height: 250px; /* Увеличиваем высоту для удобства на мобилках */
     }
 }
 
 @media screen and (max-width: 480px) {
     .actions {
-        flex-direction: column; /* Кнопки одна под другой на очень маленьких экранах */
+        flex-direction: column;
     }
 
     .subscribeBox {

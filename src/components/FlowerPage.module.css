@@ -78,11 +78,6 @@
     text-align: center;
 }
 
-.subButtonActive {
-    background: #111 !important;
-    color: #fff !important;
-    border: 1px solid #333 !important;
-}
 
 .mainGrid {
     display: grid;

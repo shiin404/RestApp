@@ -32,14 +32,14 @@ function Profile() {
                         <h1 className={styles.name}>{ProfilePerson.name}</h1>
                         <p className={styles.description}>{ProfilePerson.des}</p>
 
-                        <div className={styles.actionsSection}>
+                        {/* <div className={styles.actionsSection}>
                             <Link to={`/edit/${id}`} className={styles.actionButton}>
                                 Редактировать
                             </Link>
                             <button className={styles.actionButton}>
                                 Настройки
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
