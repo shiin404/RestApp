@@ -7,7 +7,6 @@ export default function Header() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Блокируем скролл страницы, когда меню открыто
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
@@ -21,7 +20,6 @@ export default function Header() {
               className={`${styles.burger} ${isOpen ? styles.burgerActive : ""}`} 
               onClick={toggleMenu}
             >
-              {/* Две линии для опрятного вида */}
               <span className={styles.line}></span>
               <span className={styles.line}></span>
             </button>
@@ -30,14 +28,13 @@ export default function Header() {
           <h1 className={styles.logo}>RestApp</h1>
           
           <div className={styles.headeractions}>
-      <Link to='/profile/1'>
-        <button className={styles.profileBtn}>Profile</button>
-      </Link>
-    </div>
+            <Link to='/profile/1'>
+              <button className={styles.profileBtn}>Profile</button>
+            </Link>
+          </div>
         </div>
       </header>
 
-      {/* Выпадающее меню */}
       <div className={`${styles.menuOverlay} ${isOpen ? styles.menuVisible : ""}`}>
         <nav className={styles.navLinks}>
           <Link to="/" onClick={toggleMenu}>Главная</Link>

@@ -4,9 +4,10 @@
 }
 
 .interesting h2 {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     font-size: 24px;
     color: #fff;
+    font-weight: 500;
 }
 
 .interestinggrid {
@@ -59,6 +60,6 @@
 /* На планшетах можно 2 колонки */
 @media (min-width: 421px) and (max-width: 767px) {
     .interestingitem {
-        flex: 0 0 45%; 
+        flex: 0 0 45%;
     }
 }

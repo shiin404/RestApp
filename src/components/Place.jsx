@@ -19,7 +19,7 @@ export default function Place() {
                         </Link>
                     ))}
                 </div>
-                <div className={styles.morelink}><a href="#">→ Все рестораны</a></div>
+                <div className={styles.morelink}><a href="restaurants">→ Все рестораны</a></div>
             </section>
 
             {/* Гостиницы */}

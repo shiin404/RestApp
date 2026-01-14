@@ -36,9 +36,9 @@ export default function Map() {
   }, []);
 
   return (
-    <div>
-      <section style={{ marginTop: "24px" }}>
-        <h2 style={{ marginBottom: "10px" }}>Ближайшие рестораны</h2>
+    <div style={{ padding: "0 10px" }}>
+      <section >
+        <h2 style={{ marginBottom: "20px", fontWeight: '500' }}>Ближайшие рестораны</h2>
         <div id="map" className={styles.maps}></div>
       </section>
     </div>
