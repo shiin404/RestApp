@@ -1,50 +1,55 @@
-/* Баннеры 2x2 */
+/* Десктопная версия: сетка 2х2 */
 .bannersgrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin: 18px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 18px 0;
+    padding: 0 5px;
 }
 
 .banneritem {
-  overflow: hidden;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    flex-shrink: 0; /* Чтобы не сжимались при переключении во флекс */
 }
 
 .banneritem img {
-  width: 100%;
-  height: 180px; /* одинаковая высота */
-  object-fit: cover;
-  display: block;
-  border-radius: 8px;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
 }
 
 .banneritem:hover {
-  transform: scale(1.03);
+    transform: scale(1.02);
 }
 
-/* Адаптив: планшеты */
-@media (max-width: 768px) {
-  .bannersgrid {
-    grid-template-columns: 1fr 1fr; /* остаются две колонки */
-    gap: 10px;
-  }
+/* --- МОБИЛЬНАЯ ВЕРСИЯ (Горизонтальный скролл) --- */
+@media (max-width: 600px) {
+    .bannersgrid {
+        display: flex;             /* Меняем Grid на Flex */
+        grid-template-columns: none;
+        flex-wrap: nowrap;         /* Запрещаем перенос */
+        overflow-x: auto;          /* Включаем скролл */
+        gap: 12px;
+        padding: 5px 15px 15px 15px; /* Отступы по бокам */
+        scrollbar-width: none;     /* Прячем скроллбар */
+        -webkit-overflow-scrolling: touch;
+    }
 
-  .banneritem img {
-    height: 150px;
-  }
-}
+    .bannersgrid::-webkit-scrollbar {
+        display: none;             /* Прячем скроллбар в Chrome/Safari */
+    }
 
-/* Адаптив: мобильные */
-@media (max-width: 480px) {
-  .bannersgrid {
-    grid-template-columns: 1fr; /* одна колонка */
-    gap: 8px;
-  }
+    .banneritem {
+        width: 85%;                /* Баннер занимает 85% экрана */
+        min-width: 280px;          /* Минимальная ширина, чтобы не сжимался */
+    }
 
-  .banneritem img {
-    height: 130px;
-  }
+    .banneritem img {
+        height: 310px;             /* Оптимальная высота для мобилок */
+    }
 }

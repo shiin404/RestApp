@@ -5,7 +5,8 @@ import BookingPage from "./components/BookingPage"
 import RestaurantPage from './components/RestaurantPage'
 import FlowerPage from './components/FlowerPage'
 import BuyFlower from './components/BuyFlower'
-import BookingHotel from './components/BookingHotel'
+import HotelPage from './components/HotelPage'
+import Bookhotel from './components/Bookhotel'
 
 import {SubscribeProvider} from './components/SubscribeContext'
 export default function App() {
@@ -14,12 +15,13 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/profile/:id" element={<Profile/>} />
           <Route path="/restaurant/:id" element={<RestaurantPage />} />
           <Route path="/booking/:id" element={<BookingPage />} />
           <Route path="/flower/:id" element={< FlowerPage />} />
           <Route path="/buyflower/:id" element={<BuyFlower/>}/>
-          <Route path="/hotel/:id" element={<BookingHotel/>}/>
+          <Route path="/hotel/:id" element={<HotelPage/>}/>
+          <Route path="/bookhotel/:id" element={<Bookhotel/>}/>
         </Routes>
       </BrowserRouter>
     </SubscribeProvider>

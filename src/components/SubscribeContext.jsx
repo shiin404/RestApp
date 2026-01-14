@@ -77,8 +77,40 @@ export const SubscribeProvider = ({ children }) => {
         localStorage.setItem('flower',JSON.stringify(Flower))
     },[Flower])
 
+
+    const [BookingHotel, SetBookingHotel] = useState(() => {
+    const savedBook = localStorage.getItem('bookingHotel');
+    return savedBook ? JSON.parse(savedBook) : {};});
+
+    // Синхронизация с LocalStorage
+    useEffect(() => {
+        localStorage.setItem('bookingHotel', JSON.stringify(BookingHotel));
+    }, [BookingHotel]);
+
+    const AddBookingHotel = (id, name, checkin, exit, guests, price, img) => {
+        SetBookingHotel((prev) => ({
+            ...prev,
+            [id]: {
+                name: name,
+                checkin: checkin,
+                exit: exit,
+                guests: guests,
+                price: price,
+                img: img // Добавили фото для профиля
+            }
+        }));
+    };
+
+    const deleteBookingHotel = (id) => {
+        SetBookingHotel((prev) => {
+            const copy = { ...prev };
+            delete copy[id];
+            return copy;
+        });
+    };
+
     return (
-        <SubscribeContext.Provider value={{ sub, unsubscribe, subscribe,Booking,AddBooking,deleteBooking,Flower,BuyFlower,deleteFlower}}>
+        <SubscribeContext.Provider value={{ sub, unsubscribe, subscribe,Booking,AddBooking,deleteBooking,Flower,BuyFlower,deleteFlower,BookingHotel,AddBookingHotel,deleteBookingHotel}}>
             {children}
         </SubscribeContext.Provider>
     );

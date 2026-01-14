@@ -80,6 +80,45 @@ function Profile() {
                         ))}
                     </div>
                 </div>
+                {/* Секция: Бронирование отелей */}
+                <div className={styles.infoSection}>
+                    <h2 className={styles.sectionTitle}>Бронирование отелей</h2>
+                    <div className={styles.itemList}>
+                        {Object.entries(subs.BookingHotel).map(([hotelId, info]) => (
+                            <div key={hotelId} className={styles.bookingCard}>
+                                <div className={styles.orderHeader}>
+                                    {/* Миниатюра отеля */}
+                                    <div className={styles.orderImageWrapper}>
+                                        <img 
+                                            src={info.img} 
+                                            alt={info.name} 
+                                            className={styles.orderImage} 
+                                        />
+                                    </div>
+                                    
+                                    <div className={styles.orderDetails}>
+                                        <h3 className={styles.flowerName}>{info.name}</h3>
+                                        <p className={styles.priceText}>{info.price} ₸</p>
+                                        <p className={styles.quantityText}>{info.guests} чел.</p>
+                                    </div>
+                                </div>
+
+                                {/* Блок с датами заезда и выезда */}
+                                <div className={styles.dateBadge}>
+                                    <span className={styles.dateLabel}>📅 Период:</span>
+                                    <span className={styles.dateValue}>{info.checkin} — {info.exit}</span>
+                                </div>
+
+                                <button 
+                                    className={styles.deleteBtn} 
+                                    onClick={() => subs.deleteBookingHotel(hotelId)}
+                                >
+                                    Отменить бронирование
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
                 <div className={styles.infoSection}>
                     <h2 className={styles.sectionTitle}>Заказы цветов</h2>

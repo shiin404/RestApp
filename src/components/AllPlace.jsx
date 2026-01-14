@@ -5,6 +5,7 @@ import flower_1 from "../assets/flower 1.png";
 import flower_2 from "../assets/flower 2.png";
 import styles from './RestaurantPage.module.css';
 import hotelimg from "../assets/hotel.png";
+import hotelimg2 from "../assets/hotel2.jpg";
 export const restaurant = [
     {
         id:1,
@@ -49,5 +50,12 @@ export const hotel = [
         des:'Уютное пространство с атмосферой вкуса и комфорта, где можно насладиться отдыхом, хорошей компанией и приятной атмосферой.',
         imghotel: hotelimg,
         cheque:'24,000₸',
+    },
+    {
+        id:2,
+        name:'Отель #2',
+        des:'Уютное пространство с атмосферой вкуса и комфорта, где можно насладиться отдыхом, хорошей компанией и приятной атмосферой.',
+        imghotel: hotelimg2,
+        cheque:'20,000₸',
     }
 ]
