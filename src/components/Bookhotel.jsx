@@ -15,6 +15,10 @@ export default function BookHotel() {
     // Константа цены за одну ночь
     const PRICE_PER_NIGHT = 15000;
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
+    
     // Состояния формы
     const [checkIn, setCheckIn] = useState("");
     const [checkOut, setCheckOut] = useState("");

@@ -11,6 +11,10 @@ export default function BuyFlower() {
     const Myflower = flower.find(item => item.id == id);
     const { BuyFlower } = useContext(SubscribeContext);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
+
     const FIXED_PRICE = 1000;
 
     const [nameFlower, Setname] = useState('');

@@ -1,5 +1,5 @@
 import { useParams, useNavigate,Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useStateбг } from "react";
 import { restaurant } from './AllPlace';
 import { SubscribeContext } from './SubscribeContext';
 import styles from './BookingPage.module.css';
@@ -16,6 +16,10 @@ export default function BookingPage() {
     const [localdatatime, Setlocaldatatime] = useState('');
 
     const isBooked = Booking[id];
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
 
     return (
         <div className={styles.pageWrapper}>

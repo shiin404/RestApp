@@ -13,6 +13,11 @@
     align-items: center;
     padding: 0 40px;
     border-bottom: 1px solid #111;
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
 }
 
 .back {
@@ -49,18 +54,23 @@
     object-fit: cover;
 }
 
-/* --- Заголовок и кнопки --- */
+/* Заголовок и кнопки */
 .infoHead {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .title {
     font-size: 48px;
     font-weight: 700;
     margin: 0 0 10px 0;
+}
+
+.ratingInfo {
+    display: flex;
+    align-items: center;
 }
 
 .actions {
@@ -77,23 +87,26 @@
     background: #fff;
     color: #000;
     border: none;
-    transition: background 0.2s;
-    display: inline-block;
-    text-align: center;
+    transition: all 0.2s ease;
 }
 
-.subButtonActive {
-    background: #111 !important;
-    color: #fff !important;
-    border: 1px solid #333 !important;
+.bookingButton:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
 }
 
-/* Сетки */
+/* Главная сетка (Описание и Меню) */
 .mainGrid {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 80px;
-    margin-bottom: 80px;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.leftCol {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .sectionTitle {
@@ -110,76 +123,88 @@
     color: #aaa;
 }
 
+.infoText {
+    color: #666;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+/* График работы */
+.scheduleBlock {
+    padding: 25px;
+    background: #0a0a0a;
+    border-radius: 20px;
+    border: 1px solid #161616;
+}
+
+.scheduleRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.scheduleRow:last-child {
+    border-bottom: none;
+}
+
+.dayText { color: #888; font-size: 14px; }
+.timeText { color: #fff; font-weight: 500; font-size: 14px; }
+
 /* Меню */
 .menuCard {
     background: #0a0a0a;
     border: 1px solid #161616;
     border-radius: 20px;
     padding: 30px;
+    height: fit-content;
 }
 
 .dishCard {
     display: flex;
     justify-content: space-between;
-    padding: 15px 0;
+    padding: 18px 0;
     border-bottom: 1px solid #1a1a1a;
 }
 
 .dishCard:last-child { border: none; }
-
 .dishName { font-size: 16px; margin: 0; font-weight: 500; }
-.dishDesc { font-size: 13px; color: #555; margin-top: 4px; }
-.dishPrice { font-weight: 600; color: #fff; }
-
-/* Галерея */
-.galleryGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.galleryImage {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
-}
+.dishDesc { font-size: 13px; color: #555; margin-top: 4px; line-height: 1.4; }
+.dishPrice { font-weight: 600; color: #fff; margin-left: 15px; }
 
 /* Отзывы */
+.reviewsSection {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #111;
+}
+
+.reviewsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
 .reviewCard {
-    padding: 20px 0;
-    border-bottom: 1px solid #111;
+    padding: 20px;
+    background: #050505;
+    border-radius: 16px;
+    border: 1px solid #111;
 }
 
-.reviewName { font-size: 14px; color: #fff; margin-bottom: 8px; }
-.reviewText { font-size: 14px; color: #666; line-height: 1.5; }
-
-/* Подписка */
-.subscribeBox {
-    margin-top: 100px;
-    background: #111;
-    padding: 40px;
-    border-radius: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.subscribeInput {
-    background: #000;
-    border: 1px solid #222;
-    padding: 12px 20px;
-    border-radius: 8px;
-    color: #fff;
-    width: 250px;
-    margin-right: 10px;
-}
+.reviewName { font-size: 14px; color: #fff; margin-bottom: 10px; font-weight: 600; }
+.reviewText { font-size: 14px; color: #666; line-height: 1.6; }
 
 /* Звезды */
 .starFilled { color: #ffcc00; margin-right: 2px; }
 .starEmpty { color: #333; margin-right: 2px; }
 .ratingText { margin-left: 8px; font-weight: bold; color: #fff; }
+
+.notfound {
+    color: #fff;
+    text-align: center;
+    margin-top: 100px;
+}
 
 /* ========================================= */
 /* АДАПТИВ */
@@ -193,45 +218,34 @@
 }
 
 @media screen and (max-width: 768px) {
-    /* Меняем направление на колонку: кнопки станут ПОД текстом */
+    .header { padding: 0 20px; }
+    
     .infoHead {
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
-        margin-bottom: 40px;
+        gap: 25px;
     }
 
     .actions {
-        width: 100%; /* Растягиваем контейнер на всю ширину */
+        width: 100%;
         gap: 10px;
     }
 
     .actions > *, .actions a {
-        flex: 1; /* Кнопки по 50% ширины */
+        flex: 1;
     }
 
     .bookingButton {
         width: 100%;
-        padding: 14px;
-        font-size: 14px;
+        padding: 16px;
     }
 
-    .title {
-        font-size: 32px;
-    }
-
-    .imageWrapper {
-        height: 300px;
-    }
+    .title { font-size: 34px; }
+    .imageWrapper { height: 300px; border-radius: 16px; }
 }
 
 @media screen and (max-width: 480px) {
-    /* На совсем маленьких экранах можно поставить кнопки друг под друга */
     .actions {
         flex-direction: column;
-    }
-    
-    .galleryGrid {
-        grid-template-columns: 1fr;
     }
 }

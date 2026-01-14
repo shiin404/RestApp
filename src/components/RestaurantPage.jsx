@@ -69,23 +69,19 @@ export default function RestaurantPage() {
         }
         return stars;
     };
-
+    
     return (
     <div className={styles.container}>
-        {/* Верхняя навигация */}
         <header className={styles.header}>
             <Link to="/" className={styles.back}>← На главную</Link>
             <div style={{fontSize: '18px', fontWeight: 'bold'}}>RestApp</div>
         </header>
 
         <div className={styles.content}>
-            
-            {/* Блок с изображением */}
             <div className={styles.imageWrapper}>
                 <img src={Rest.imgrest} alt={Rest.name} className={styles.image} />
             </div>
 
-            {/* Заголовок и кнопки управления */}
             <div className={styles.infoHead}>
                 <div>
                     <h1 className={styles.title}>{Rest.name}</h1>
@@ -99,9 +95,10 @@ export default function RestaurantPage() {
                 </div>
             </div>
 
+            {/* ОСНОВНАЯ СЕТКА */}
             <div className={styles.mainGrid}>
                 {/* Левая колонка */}
-                <div>
+                <div className={styles.leftCol}>
                     <div className={styles.section}>
                         <h2 className={styles.sectionTitle}>О концепции</h2>
                         <p className={styles.description}>{description}</p>
@@ -109,38 +106,43 @@ export default function RestaurantPage() {
 
                     <div className={styles.section} style={{marginTop: '40px'}}>
                         <h2 className={styles.sectionTitle}>Контакты</h2>
-                        <p className={styles.infoText}>{address}</p>
-                        <p className={styles.infoText}>{contacts.phone}</p>
+                        <p className={styles.infoText}>{Rest.city}, {Rest.address}</p>
+                        <p className={styles.infoText}>{Rest.phone}</p>
                     </div>
-                </div>
 
-                {/* Правая колонка - Меню */}
-                <div className={styles.menuCard}>
-                    <h2 className={styles.sectionTitle}>Меню</h2>
-                    {menu.map((dish, index) => (
-                        <div key={index} className={styles.dishCard}>
-                            <div className={styles.dishContent}>
-                                <h3 className={styles.dishName}>{dish.name}</h3>
-                                <p className={styles.dishDesc}>{dish.desc}</p>
+                    {/* ГРАФИК РАБОТЫ ТЕПЕРЬ ТУТ (в левой колонке) */}
+                    <div className={styles.scheduleBlock}>
+                        <h3 className={styles.sectionTitle}>График работы</h3>
+                        {Rest.schedule && Rest.schedule.map((item, index) => (
+                            <div key={index} className={styles.scheduleRow}>
+                                <span className={styles.dayText}>{item.day}</span>
+                                <span className={styles.timeText}>{item.time}</span>
                             </div>
-                            <span className={styles.dishPrice}>{dish.price}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Нижняя часть - Галерея и Отзывы */}
-            <div className={styles.mainGrid}>
-                <div>
-                    <h2 className={styles.sectionTitle}>Галерея</h2>
-                    <div className={styles.galleryGrid}>
-                        {gallery.map((img, index) => (
-                            <img key={index} src={img} className={styles.galleryImage} alt="rest" />
                         ))}
                     </div>
                 </div>
-                <div>
-                    <h2 className={styles.sectionTitle}>Последние отзывы</h2>
+
+                {/* Правая колонка */}
+                <div className={styles.rightCol}>
+                    <div className={styles.menuCard}>
+                        <h2 className={styles.sectionTitle}>Меню</h2>
+                        {menu.map((dish, index) => (
+                            <div key={index} className={styles.dishCard}>
+                                <div className={styles.dishContent}>
+                                    <h3 className={styles.dishName}>{dish.name}</h3>
+                                    <p className={styles.dishDesc}>{dish.desc}</p>
+                                </div>
+                                <span className={styles.dishPrice}>{dish.price}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* ОТЗЫВЫ ВЫНЕСЕНЫ ОТДЕЛЬНО, ЧТОБЫ НЕ БЫЛО ПРОБЕЛА */}
+            <div className={styles.reviewsSection}>
+                <h2 className={styles.sectionTitle}>Последние отзывы</h2>
+                <div className={styles.reviewsGrid}>
                     {reviews.map((review, index) => (
                         <div key={index} className={styles.reviewCard}>
                             <div className={styles.reviewName}>{review.name}</div>
