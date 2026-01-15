@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
 import styles from "./DownloadApp.module.css";
+import {useEffect } from "react";
 // Импортируй иконки, если они есть, или используй эмодзи как заглушки
 import telegram from '../../assets/telegram.png';
 
 export default function DownloadApp() {
+    useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
     return (
         <div className={styles.container}>
             <div className={styles.content}>
