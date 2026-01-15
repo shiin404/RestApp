@@ -41,13 +41,6 @@ export default function BookingPage() {
 
     return (
         <div className={styles.pageWrapper}>
-            <header className={styles.header}>
-                <div className={styles.logo}>RestApp</div>
-                <Link to='/profile/1'>
-                    <button className={styles.profileBtn}>Profile</button>
-                </Link>
-            </header>
-
             <main className={styles.main}>
                 <a 
                     href="#" 

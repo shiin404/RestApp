@@ -1,4 +1,3 @@
-import Header from "../MainPage/Header";
 import { restaurant } from '../AllData/AllPlace';
 import { Link } from "react-router-dom";
 import styles from './Allplace.module.css';
@@ -6,7 +5,6 @@ import styles from './Allplace.module.css';
 export default function Allrest() {
     return (
         <div className={styles.pageLayout}>
-            <Header />
             <div className={styles.mainContainer}>
                 <section className={styles.section}>
                     <h2 className={styles.title}>Все рестораны</h2>

@@ -61,10 +61,6 @@ export default function HotelPage() {
 
     return (
         <div className={styles.container}>
-            <header className={styles.header}>
-                <Link to="/" className={styles.back}>← На главную</Link>
-                <div className={styles.logoText}>RestApp</div>
-            </header>
 
             <div className={styles.content}>
                 <div className={styles.imageWrapper}>

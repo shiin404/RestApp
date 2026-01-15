@@ -63,11 +63,6 @@ export default function RestaurantPage() {
 
     return (
         <div className={styles.container}>
-            <header className={styles.header}>
-                <Link to="/" className={styles.back}>← На главную</Link>
-                <div className={styles.brandName}>RestApp</div>
-            </header>
-
             <div className={styles.content}>
                 <div className={styles.imageWrapper}>
                     <img src={imgrest} alt={name} className={styles.image} />

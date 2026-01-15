@@ -38,8 +38,6 @@ export default function Profile() {
     return (
         <div className={styles.profileContainer}>
             <div className={styles.contentWrapper}>
-                <Link to="/" className={styles.backButton}>← На главную</Link>
-
                 <header className={styles.profileHeader}>
                     <div className={styles.headerContent}>
                         <img src={profile.avatar} alt={profile.name} className={styles.avatar} />

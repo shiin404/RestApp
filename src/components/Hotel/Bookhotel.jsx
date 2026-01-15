@@ -63,10 +63,6 @@ export default function BookHotel() {
 
     return (
         <div className={styles.container}>
-            <header className={styles.header}>
-                <Link to="/" className={styles.logo}>RestApp</Link>
-                <Link to={`/hotel/${id}`} className={styles.closeBtn}>✕</Link>
-            </header>
 
             <div className={styles.card}>
                 <div className={styles.hotelPreview}>
