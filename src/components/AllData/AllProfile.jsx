@@ -1,4 +1,4 @@
-import human from "../assets/human2.jpg";
+import human from "../../assets/human2.jpg";
 export const Profiles =[
     {
         name:'Пользователь',

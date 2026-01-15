@@ -1,7 +1,7 @@
 import styles from "./Footer.module.css"; // убедись, что файл именно так называется
-import telegram from '../assets/telegram.png'
-import whatspp from '../assets/whatsapp.png'
-import instagram from '../assets/instagram.jpeg'
+import telegram from '../../assets/telegram.png'
+import whatspp from '../../assets/whatsapp.png'
+import instagram from '../../assets/instagram.jpeg'
 export default function Footer() {
   return (
     <footer className={styles.siteFooter}>

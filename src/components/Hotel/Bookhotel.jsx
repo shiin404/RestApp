@@ -1,78 +1,65 @@
 import styles from './Bookhotel.module.css';
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useMemo } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { hotel } from './AllPlace';
-import { SubscribeContext } from './SubscribeContext';
+import { hotel } from '../AllData/AllPlace';
+import { SubscribeContext } from '../AllData/SubscribeContext';
+
+const PRICE_PER_NIGHT = 15000;
+const MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
 
 export default function BookHotel() {
     const { id } = useParams();
     const navigate = useNavigate();
-    const Hotel = hotel.find((el) => el.id == id);
-    
-    // Достаем функцию из контекста
     const { AddBookingHotel } = useContext(SubscribeContext);
 
-    // Константа цены за одну ночь
-    const PRICE_PER_NIGHT = 15000;
+    const targetHotel = useMemo(() => hotel.find((item) => item.id === Number(id)), [id]);
+
+    const [checkInDate, setCheckInDate] = useState("");
+    const [checkOutDate, setCheckOutDate] = useState("");
+    const [guestsCount, setGuestsCount] = useState(1);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [id]);
-    
-    // Состояния формы
-    const [checkIn, setCheckIn] = useState("");
-    const [checkOut, setCheckOut] = useState("");
-    const [guests, setGuests] = useState(1);
-    const [totalPrice, setTotalPrice] = useState(0);
 
-    // Автоматический расчет итоговой цены при изменении дат
-    useEffect(() => {
-        if (checkIn && checkOut) {
-            const start = new Date(checkIn);
-            const end = new Date(checkOut);
-            
-            // Вычисляем разницу в днях
-            const diffTime = end - start;
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            
-            if (diffDays > 0) {
-                setTotalPrice(diffDays * PRICE_PER_NIGHT);
-            } else {
-                setTotalPrice(0);
-            }
-        }
-    }, [checkIn, checkOut]);
+    const totalPrice = useMemo(() => {
+        if (!checkInDate || !checkOutDate) return 0;
 
-    if (!Hotel) return <div className={styles.notfound}>Отель не найден</div>;
+        const start = new Date(checkInDate);
+        const end = new Date(checkOutDate);
+        const differenceInDays = Math.ceil((end - start) / MILLISECONDS_IN_DAY);
 
-    const handleConfirmBooking = () => {
-        // Проверка: все ли поля заполнены
-        if (!checkIn || !checkOut || !guests) {
+        return differenceInDays > 0 ? differenceInDays * PRICE_PER_NIGHT : 0;
+    }, [checkInDate, checkOutDate]);
+
+    const handleBookingSubmission = () => {
+        if (!checkInDate || !checkOutDate || !guestsCount) {
             alert("Пожалуйста, заполните все поля даты и выберите количество гостей!");
             return;
         }
 
-        // Проверка: дата выезда должна быть позже даты заезда
         if (totalPrice <= 0) {
             alert("Дата выезда должна быть позже даты заезда");
             return;
         }
 
-        // Отправка данных в контекст (по твоей структуре)
-        // id, name, chekin, exit, number (гости), quantity (цена), img
         AddBookingHotel(
-            Hotel.id, 
-            Hotel.name, 
-            checkIn, 
-            checkOut, 
-            guests, 
-            totalPrice, 
-            Hotel.imghotel
+            targetHotel.id,
+            targetHotel.name,
+            checkInDate,
+            checkOutDate,
+            guestsCount,
+            totalPrice,
+            targetHotel.imghotel
         );
 
         alert("Отель успешно забронирован!");
-        navigate('/profile/1'); // Переход в профиль
+        navigate('/profile/1');
     };
+
+    if (!targetHotel) {
+        return <div className={styles.notfound}>Отель не найден</div>;
+    }
 
     return (
         <div className={styles.container}>
@@ -83,9 +70,9 @@ export default function BookHotel() {
 
             <div className={styles.card}>
                 <div className={styles.hotelPreview}>
-                    <img src={Hotel.imghotel} alt={Hotel.name} className={styles.image} />
+                    <img src={targetHotel.imghotel} alt={targetHotel.name} className={styles.image} />
                     <div className={styles.hotelInfo}>
-                        <h1 className={styles.hotelName}>{Hotel.name}</h1>
+                        <h1 className={styles.hotelName}>{targetHotel.name}</h1>
                         <p className={styles.hotelPrice}>{PRICE_PER_NIGHT} ₸ / ночь</p>
                     </div>
                 </div>
@@ -97,8 +84,8 @@ export default function BookHotel() {
                             <input 
                                 type="date" 
                                 className={styles.input}
-                                value={checkIn}
-                                onChange={(e) => setCheckIn(e.target.value)}
+                                value={checkInDate}
+                                onChange={(e) => setCheckInDate(e.target.value)}
                             />
                         </div>
                         <div className={styles.inputGroup}>
@@ -106,8 +93,8 @@ export default function BookHotel() {
                             <input 
                                 type="date" 
                                 className={styles.input}
-                                value={checkOut}
-                                onChange={(e) => setCheckOut(e.target.value)}
+                                value={checkOutDate}
+                                onChange={(e) => setCheckOutDate(e.target.value)}
                             />
                         </div>
                     </div>
@@ -116,26 +103,27 @@ export default function BookHotel() {
                         <label className={styles.label}>Количество гостей</label>
                         <select 
                             className={styles.input}
-                            value={guests}
-                            onChange={(e) => setGuests(Number(e.target.value))}
+                            value={guestsCount}
+                            onChange={(e) => setGuestsCount(Number(e.target.value))}
                         >
-                            <option value="1">1 гость</option>
-                            <option value="2">2 гостя</option>
-                            <option value="3">3 гостя</option>
-                            <option value="4">4 гостя</option>
+                            {[1, 2, 3, 4].map(num => (
+                                <option key={num} value={num}>
+                                    {num} {num === 1 ? 'гость' : num < 5 ? 'гостя' : 'гостей'}
+                                </option>
+                            ))}
                         </select>
                     </div>
 
                     <div className={styles.priceDisplay}>
                         <div className={styles.priceRow}>
                             <span>Итого к оплате:</span>
-                            <span className={styles.amount}>{totalPrice} ₸</span>
+                            <span className={styles.amount}>{totalPrice.toLocaleString()} ₸</span>
                         </div>
                     </div>
 
                     <button 
                         className={styles.buyButton} 
-                        onClick={handleConfirmBooking}
+                        onClick={handleBookingSubmission}
                     >
                         Забронировать сейчас
                     </button>

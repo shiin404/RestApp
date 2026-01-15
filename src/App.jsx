@@ -1,20 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import Profile from "./components/Profile";
-import BookingPage from "./components/BookingPage"
-import RestaurantPage from './components/RestaurantPage'
-import FlowerPage from './components/FlowerPage'
-import BuyFlower from './components/BuyFlower'
-import HotelPage from './components/HotelPage'
-import Bookhotel from './components/Bookhotel'
-import Allrest from './components/Allrest'
-import Allhotel from './components/Allhotel'
-import Allflowers from './components/Allflowers'
-import {SubscribeProvider} from './components/SubscribeContext'
+import Home from "./components/MainPage/Home";
+import Profile from "./components/Profile/Profile";
+import BookingPage from "./components/Restaurant/BookingPage"
+import RestaurantPage from './components/Restaurant/RestaurantPage'
+import FlowerPage from './components/Flower/FlowerPage'
+import BuyFlower from './components/Flower/BuyFlower'
+import HotelPage from './components/Hotel/HotelPage'
+import Bookhotel from './components/Hotel/Bookhotel'
+import Allrest from './components/Allplace/Allrest'
+import Allhotel from './components/Allplace/Allhotel'
+import Allflowers from './components/Allplace/Allflowers'
+import Header from "./components/MainPage/Header";
+import {SubscribeProvider} from './components/AllData/SubscribeContext'
 export default function App() {
   return (
     <SubscribeProvider>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile/:id" element={<Profile/>} />

@@ -1,7 +1,7 @@
-import Header from "./Header";
-import { hotel } from './AllPlace'; // Используем массив hotel
+import Header from "../MainPage/Header";
+import { hotel } from '../AllData/AllPlace'; // Используем массив hotel
 import { Link } from "react-router-dom";
-import styles from './Allrest.module.css'; // Тот же CSS файл
+import styles from './Allplace.module.css';
 
 export default function Allhotel() {
     return (

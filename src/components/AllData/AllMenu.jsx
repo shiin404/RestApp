@@ -1,5 +1,5 @@
-import banner16 from "../assets/rose.jpg";
-import banner17 from "../assets/pion.png";
+import banner16 from "../../assets/rose.jpg";
+import banner17 from "../../assets/pion.png";
 
 export const flowers = [
     {

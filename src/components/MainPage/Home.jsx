@@ -1,7 +1,7 @@
 
 import Header from "./Header"
 import Banner from "./Banner"
-import styles from './App.module.css'
+import styles from './Home.module.css'
 import Search from './Search'
 import Place from './Place'
 import Map from './Map'
@@ -13,7 +13,6 @@ import Footer from './Footer'
 export default function Home() {
   return(
     <div className={styles.page}>
-      <Header />
       <Banner />
       <Search />
       <Place />

@@ -1,7 +1,7 @@
-import Header from "./Header";
-import { flower } from './AllPlace'; 
+import Header from "../MainPage/Header";
+import { flower } from '../AllData/AllPlace'; 
 import { Link } from "react-router-dom";
-import styles from './Allrest.module.css'; 
+import styles from './Allplace.module.css';
 
 export default function Allflowers() {
     return (

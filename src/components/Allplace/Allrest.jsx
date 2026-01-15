@@ -1,7 +1,7 @@
-import Header from "./Header";
-import { restaurant } from './AllPlace';
+import Header from "../MainPage/Header";
+import { restaurant } from '../AllData/AllPlace';
 import { Link } from "react-router-dom";
-import styles from './Allrest.module.css';
+import styles from './Allplace.module.css';
 
 export default function Allrest() {
     return (

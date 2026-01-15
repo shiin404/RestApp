@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
-import { Profiles } from './AllProfile'; // Убедись, что путь верный
+import { Profiles } from '../AllData/AllProfile'; // Убедись, что путь верный
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
