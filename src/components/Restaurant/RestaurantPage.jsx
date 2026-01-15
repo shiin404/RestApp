@@ -3,11 +3,12 @@ import { useParams, Link } from "react-router-dom";
 import { restaurant } from '../AllData/AllPlace';
 import { SubscribeContext } from '../AllData/SubscribeContext';
 import styles from './RestaurantPage.module.css';
+import { useNavigate } from 'react-router-dom'; 
 
 export default function RestaurantPage() {
     const { id } = useParams();
     const { sub, unsubscribe, subscribe } = useContext(SubscribeContext);
-
+    const navigate = useNavigate();
     const currentRest = useMemo(() => 
         restaurant.find(item => item.id === Number(id)), 
         [id]
@@ -64,6 +65,9 @@ export default function RestaurantPage() {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
+                <button onClick={() => navigate(-1)} className={styles.backButton}>
+                    ← Назад
+                </button>
                 <div className={styles.imageWrapper}>
                     <img src={imgrest} alt={name} className={styles.image} />
                 </div>

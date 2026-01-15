@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { hotel } from '../AllData/AllPlace';
 import { SubscribeContext } from '../AllData/SubscribeContext';
 import styles from './HotelPage.module.css';
-
+import { useNavigate } from 'react-router-dom';
 const AMENITIES_LIST = ["Бесплатный WiFi", "Бассейн с подогревом", "Завтрак (шведский стол)", "Охраняемая парковка", "SPA-центр"];
 
 const GALLERY_IMAGES = [
@@ -31,7 +31,7 @@ export default function HotelPage() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [id]);
-
+    const navigate = useNavigate();
     if (!currentHotel) {
         return <div className={styles.notfound}>Отель не найден</div>;
     }
@@ -63,6 +63,9 @@ export default function HotelPage() {
         <div className={styles.container}>
 
             <div className={styles.content}>
+                <button onClick={() => navigate(-1)} className={styles.backButton}>
+                    ← Назад
+                </button>
                 <div className={styles.imageWrapper}>
                     <img 
                         src={imghotel || "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop"} 

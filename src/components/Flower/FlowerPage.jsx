@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { flower } from '../AllData/AllPlace'; 
 import { SubscribeContext } from '../AllData/SubscribeContext';
 import styles from './FlowerPage.module.css';
-
+import { useNavigate } from 'react-router-dom';
 export default function FlowerPage() {
     const { id } = useParams();
     const { sub, unsubscribe, subscribe } = useContext(SubscribeContext);
@@ -14,7 +14,7 @@ export default function FlowerPage() {
     );
 
     const isSubscribed = !!sub[id];
-
+    const navigate = useNavigate();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [id]);
@@ -59,6 +59,9 @@ export default function FlowerPage() {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
+                <button onClick={() => navigate(-1)} className={styles.backButton}>
+                    ← Назад
+                </button>
                 <div className={styles.imageWrapper}>
                     <img src={imgflower} alt={name} className={styles.image} />
                 </div>

@@ -6,7 +6,30 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden; 
 }
+.backButton {
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+    font-family: inherit;
+}
 
+.backButton:hover {
+    color: #fff;
+}
+
+/* Опционально: если хочешь, чтобы кнопка была чуть выше картинки */
+@media (max-width: 768px) {
+    .backButton {
+        margin-left: 10px;
+    }
+}
 .header {
     height: 70px;
     display: flex;

@@ -192,6 +192,9 @@
 }
 
 @media (max-width: 480px) {
+    .container{
+        margin-top: 60px;
+    }
     .platformGrid, .features {
         grid-template-columns: 1fr;
     }

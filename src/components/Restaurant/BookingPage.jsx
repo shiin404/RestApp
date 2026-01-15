@@ -47,7 +47,7 @@ export default function BookingPage() {
                     onClick={handleBackClick} 
                     className={styles.backLink}
                 >
-                    ← Назад к списку
+                    ← Назад
                 </a>
                 
                 <h1 className={styles.title}>{currentRestaurant.name}</h1>
