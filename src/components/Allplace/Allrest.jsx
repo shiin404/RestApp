@@ -1,8 +1,12 @@
 import { restaurant } from '../AllData/AllPlace';
 import { Link } from "react-router-dom";
 import styles from './Allplace.module.css';
+import { useEffect } from "react";
 
 export default function Allrest() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className={styles.pageLayout}>
             <div className={styles.mainContainer}>
