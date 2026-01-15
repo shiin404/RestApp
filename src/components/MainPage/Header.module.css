@@ -3,45 +3,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px; /* Твоя высота */
-  background-color: rgba(0,0,0,1);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Твоя тень */
+  height: 60px;
+  background-color: #000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   z-index: 1000;
-  transition: background-color 0.3s ease;
   display: flex;
   justify-content: center;
 }
-.headeractions {
-    display: flex;
-    align-items: center;
-}
 
-.profileLink {
-    display: flex;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-}
-
-.profileLink:hover {
-    opacity: 0.8; /* Эффект при наведении на аватарку */
-}
-
-.avatar {
-    width: 40px;          /* Размер аватарки */
-    height: 40px;
-    border-radius: 50%;   /* Круглая форма */
-    object-fit: cover;    /* Чтобы фото не сжималось */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Тонкая стильная обводка */
-    display: block;
-}
-
-/* Для мобильных устройств */
-@media screen and (max-width: 768px) {
-    .avatar {
-        width: 35px;
-        height: 35px;
-    }
-}
 .headercontainer {
   width: 100%;
   max-width: 1100px;
@@ -52,36 +21,7 @@
   position: relative;
 }
 
-/* --- Твой Бургер с анимацией --- */
-.burger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 0;
-  z-index: 1100;
-}
-
-.line {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: #fff;
-  transition: 0.3s;
-}
-
-/* Анимация крестика */
-.burgerActive .line:first-child {
-  transform: translateY(5px) rotate(45deg);
-}
-
-.burgerActive .line:last-child {
-  transform: translateY(-5px) rotate(-45deg);
-}
-
-/* Логотип по центру */
+/* --- ЛОГОТИП (Твой оригинальный стиль) --- */
 .logo {
   font-size: 24px;
   font-weight: bold;
@@ -92,18 +32,49 @@
   transform: translateX(-50%);
 }
 
-/* Правая часть */
-.headeractions button {
-  background-color: #ffffff; /* Твой цвет */
-  color: black;
+/* --- БУРГЕР (Тонкий и асимметричный) --- */
+.burger {
+  background: none;
   border: none;
-  padding: 7px 14px;
-  border-radius: 8px;
   cursor: pointer;
-  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Твой оригинальный отступ */
+  padding: 0;
+  z-index: 1100;
 }
 
-/* --- Опрятное меню в твоем стиле --- */
+.line {
+  display: block;
+  height: 2px; /* Твоя оригинальная толщина */
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.line:first-child { width: 24px; }
+.line:last-child { width: 16px; }
+
+.burgerActive .line:first-child {
+  transform: translateY(5px) rotate(45deg);
+  width: 24px;
+}
+
+.burgerActive .line:last-child {
+  transform: translateY(-5px) rotate(-45deg);
+  width: 24px;
+}
+
+/* --- ПРОФИЛЬ --- */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: block;
+}
+
+/* --- МЕНЮ (С каскадным эффектом) --- */
 .menuOverlay {
   position: fixed;
   top: 0;
@@ -113,6 +84,7 @@
   background-color: #000;
   z-index: 900;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0;
@@ -132,14 +104,40 @@
   gap: 25px;
 }
 
-.navLinks a {
+.navItem {
   color: #fff;
   text-decoration: none;
-  font-size: 36px; /* Большой размер как в твоих заголовках */
+  font-size: 36px;
   font-weight: 500;
-  transition: opacity 0.2s;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.navLinks a:hover {
+.menuVisible .navItem {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Эффект для пальца на телефоне */
+.navItem:active {
+  transform: scale(0.9);
   opacity: 0.6;
+}
+
+.menuFooter {
+  position: absolute;
+  bottom: 40px;
+  color: #333;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .avatar {
+    width: 35px;
+    height: 35px;
+  }
+  .navItem {
+    font-size: 32px;
+  }
 }

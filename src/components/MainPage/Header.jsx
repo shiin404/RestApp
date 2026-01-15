@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
-import { Profiles } from '../AllData/AllProfile'; // Убедись, что путь верный
+import { Profiles } from '../AllData/AllProfile';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +11,13 @@ export default function Header() {
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
+
+  const navItems = [
+    { name: "Главная", path: "/" },
+    { name: "Рестораны", path: "/restaurants" },
+    { name: "Гостиницы", path: "/hotels" },
+    { name: "Цветочные", path: "/flowers" }
+  ];
 
   return (
     <>
@@ -38,11 +45,21 @@ export default function Header() {
 
       <div className={`${styles.menuOverlay} ${isOpen ? styles.menuVisible : ""}`}>
         <nav className={styles.navLinks}>
-          <Link to="/" onClick={toggleMenu}>Главная</Link>
-          <Link to="/restaurants" onClick={toggleMenu}>Рестораны</Link>
-          <Link to="/hotels" onClick={toggleMenu}>Гостиницы</Link>
-          <Link to="/flowers" onClick={toggleMenu}>Цветочные</Link>
+          {navItems.map((item, index) => (
+            <Link 
+              key={item.name}
+              to={item.path} 
+              onClick={toggleMenu}
+              className={styles.navItem}
+              style={{ transitionDelay: isOpen ? `${index * 0.1}s` : '0s' }}
+            >
+              {item.name}
+            </Link>
+          ))}
         </nav>
+        <div className={styles.menuFooter}>
+          <p>© 2026 RestApp</p>
+        </div>
       </div>
     </>
   );
