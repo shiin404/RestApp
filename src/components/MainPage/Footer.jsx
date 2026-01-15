@@ -1,7 +1,7 @@
 import styles from "./Footer.module.css";
 import telegram from '../../assets/telegram.png';
 import whatspp from '../../assets/whatsapp.png';
-import instagram from '../../assets/instagram.jpeg';
+import instagram from '../../assets/instagram.png';
 import { Link } from "react-router-dom";
 
 export default function Footer() {
