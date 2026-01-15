@@ -10,7 +10,8 @@ import Bookhotel from './components/Hotel/Bookhotel'
 import Allrest from './components/Allplace/Allrest'
 import Allhotel from './components/Allplace/Allhotel'
 import Allflowers from './components/Allplace/Allflowers'
-import Header from "./components/MainPage/Header";
+import Header from "./components/MainPage/Header"
+import DownloadApp from "./components/MainPage/DownloadApp"
 import {SubscribeProvider} from './components/AllData/SubscribeContext'
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/restaurants" element={<Allrest/>}/>
           <Route path="/hotels" element={<Allhotel/>}/>
           <Route path="/flowers" element={<Allflowers/>}/>
+          <Route path="/app" element={<DownloadApp/>}/>
         </Routes>
       </BrowserRouter>
     </SubscribeProvider>

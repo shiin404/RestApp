@@ -2,6 +2,7 @@ import styles from "./Footer.module.css"; // убедись, что файл и�
 import telegram from '../../assets/telegram.png'
 import whatspp from '../../assets/whatsapp.png'
 import instagram from '../../assets/instagram.jpeg'
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className={styles.siteFooter}>
@@ -34,7 +35,9 @@ export default function Footer() {
 
         <div className={styles.footerCol}>
           <h4>Приложение</h4>
-          <button className={styles.downloadApp}>Скачать App</button>
+          <Link to="/app" className={styles.downloadLink}>
+            <button className={styles.downloadApp}>Скачать RestApp</button>
+          </Link>
         </div>
 
       </div>
